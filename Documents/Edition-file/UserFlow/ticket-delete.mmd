@@ -1,0 +1,16 @@
+---
+config:
+  theme: redux-dark
+  look: classic
+  layout: dagre
+---
+flowchart TD
+
+    A[Utilisateur/Admin] --> B[Ouvre un ticket]
+    B --> C[Clique supprimer]
+
+    C -->|Non autorisé| D["Erreur d'accès (403)"]
+
+    C -->|Autorisé| E[API : Supprimer ticket]
+    E --> F[Supprimer commentaires + historique]
+    F --> G[Confirmer suppression]

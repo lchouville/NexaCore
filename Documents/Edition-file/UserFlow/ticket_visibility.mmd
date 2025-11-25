@@ -1,0 +1,13 @@
+---
+config:
+  theme: redux-dark
+  look: classic
+  layout: dagre
+---
+flowchart TD
+
+    A[Utilisateur] --> B[Ouvre la liste des tickets]
+    B --> C[API : Récupérer tickets visibles]
+
+    C -->|Utilisateur standard| D[Afficher : tickets créés + tickets assignés + tickets publics]
+    C -->|Admin| E[Afficher tous les tickets]

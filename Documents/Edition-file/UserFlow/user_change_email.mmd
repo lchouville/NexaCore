@@ -1,0 +1,31 @@
+---
+config:
+  theme: redux-dark
+  look: classic
+  layout: dagre
+---
+flowchart TD
+
+A[Utilisateur ouvre Paramètres du compte] --> B[Utilisateur clique sur Modifier Pseudo]
+B --> C[Affichage du formulaire avec pseudo actuel]
+C --> D[Utilisateur saisit un nouveau pseudo]
+D --> E[Utilisateur clique sur Enregistrer]
+
+E --> F[Frontend valide :  
+- non vide  
+- format OK  
+- longueur OK]
+
+F -->|Validé| G[Envoi requête PUT /user/pseudo]
+F -->|Erreur| F1[Affichage erreur]
+
+G --> H[Backend vérifie :  
+- Authentification  
+- Unicité du pseudo  
+- Format conforme]
+
+H -->|OK| I[Mise à jour du pseudo en base]
+H -->|Erreur| H1[Conflit (409), mauvais format (400), non autorisé (401)]
+
+I --> J[Retour succès au frontend]
+J --> K[Mise à jour de l’UI + message succès]

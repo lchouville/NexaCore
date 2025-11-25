@@ -1,0 +1,19 @@
+---
+config:
+  theme: redux-dark
+  look: classic
+  layout: dagre
+---
+flowchart TD
+
+    A[Utilisateur ou Admin] --> B[Ouvre un ticket]
+    B --> C[Ouvrir menu : Ajouter un assigné]
+    C --> D[API : Vérifier droits]
+
+    D -->|Pas autorisé| E[Erreur d'accès]
+    E --> B
+
+    D -->|OK| F[Sélection d'un utilisateur]
+    F --> G[API : Ajouter utilisateur assigné]
+    G --> H["Mettre à jour visibilité (privé/public)"]
+    H --> I[Afficher ticket mis à jour]

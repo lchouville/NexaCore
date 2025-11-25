@@ -1,0 +1,12 @@
+---
+config:
+  theme: redux-dark
+  look: classic
+  layout: dagre
+---
+flowchart TD
+    A[Utilisateur réalise une action] --> B[Le système vérifie si l'action doit être journalisée]
+    B -->|Oui| C[Construction de l'entrée de log : auteur, action, description, date]
+    C --> D[Enregistrement dans le journal global]
+    D --> E[Retour succès]
+    B -->|Non| F[Pas de journalisation]

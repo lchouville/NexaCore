@@ -1,0 +1,19 @@
+---
+config:
+  theme: redux-dark
+  look: classic
+  layout: dagre
+---
+flowchart TD
+
+    U[Utilisateur] --> A[Demander la suppression du compte]
+    A --> B[Afficher message : Confirmation nécessaire<br/>Un e-mail a été envoyé]
+    B --> C[Envoi automatique d’un e-mail<br/>avec lien de confirmation]
+    C --> D[Utilisateur clique le lien dans l'e-mail]
+
+    D --> E[Backend vérifie :<br/>• Lien valide<br/>• Jeton non expiré]
+    E -->|Valide| F[Suppression du compte]
+    F --> G[Journalisation de l'action]
+    G --> H[Envoi d'un e-mail de confirmation<br/>Compte supprimé]
+
+    E -->|Invalide| X[Erreur : lien expiré ou invalide]
