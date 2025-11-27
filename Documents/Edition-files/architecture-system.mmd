@@ -1,0 +1,130 @@
+---
+config:
+  theme: dark
+  look: classic
+  layout: dagre
+---
+graph TB
+    subgraph CLIENT["{{CLIENT_LAYER}}"]
+        BLAZOR["Blazor WebAssembly<br/>{{COMPONENTS}}"]
+        STATE["{{STATE_MANAGEMENT}}"]
+        BLAZOR --> STATE
+    end
+
+    subgraph PRESENTATION["{{LAYER_PRESENTATION}}"]
+        API["API Controllers<br/>{{REST_ENDPOINTS}}"]
+        AUTH_FILTER["{{AUTH_FILTERS}}"]
+        VALIDATION["{{INPUT_VALIDATION}}"]
+        
+        API --> AUTH_FILTER
+        API --> VALIDATION
+    end
+
+    subgraph APPLICATION["{{LAYER_APPLICATION}}"]
+        USER_SVC["{{SERVICE_USER}}"]
+        TICKET_SVC["{{SERVICE_TICKET}}"]
+        COMMENT_SVC["{{SERVICE_COMMENT}}"]
+        NOTIF_SVC["{{SERVICE_NOTIFICATION}}"]
+        LOG_SVC["{{SERVICE_LOG}}"]
+        
+        MEDIATOR["MediatR<br/>{{CQRS_PATTERN}}"]
+        
+        MEDIATOR --> USER_SVC
+        MEDIATOR --> TICKET_SVC
+        MEDIATOR --> COMMENT_SVC
+        MEDIATOR --> NOTIF_SVC
+        MEDIATOR --> LOG_SVC
+    end
+
+    subgraph DOMAIN["{{LAYER_DOMAIN}}"]
+        USER_ENTITY["{{ENTITY_USER}}"]
+        TICKET_ENTITY["{{ENTITY_TICKET}}"]
+        COMMENT_ENTITY["{{ENTITY_COMMENT}}"]
+        LOG_ENTITY["{{ENTITY_LOG}}"]
+        
+        INTERFACES["{{DOMAIN_INTERFACES}}"]
+        BUSINESS_RULES["{{BUSINESS_RULES}}"]
+        
+        USER_ENTITY --> BUSINESS_RULES
+        TICKET_ENTITY --> BUSINESS_RULES
+        COMMENT_ENTITY --> BUSINESS_RULES
+    end
+
+    subgraph INFRASTRUCTURE["{{LAYER_INFRASTRUCTURE}}"]
+        EF_CONTEXT["EF Core DbContext"]
+        REPOSITORIES["{{REPOSITORIES}}"]
+        
+        USER_REPO["{{REPO_USER}}"]
+        TICKET_REPO["{{REPO_TICKET}}"]
+        COMMENT_REPO["{{REPO_COMMENT}}"]
+        LOG_REPO["{{REPO_LOG}}"]
+        
+        REPOSITORIES --> USER_REPO
+        REPOSITORIES --> TICKET_REPO
+        REPOSITORIES --> COMMENT_REPO
+        REPOSITORIES --> LOG_REPO
+        
+        USER_REPO --> EF_CONTEXT
+        TICKET_REPO --> EF_CONTEXT
+        COMMENT_REPO --> EF_CONTEXT
+        LOG_REPO --> EF_CONTEXT
+    end
+
+    subgraph SECURITY["{{SECURITY_LAYER}}"]
+        JWT["JWT {{TOKENS}}"]
+        IDENTITY["ASP.NET Identity"]
+        AUTH["{{AUTHENTICATION}}"]
+        AUTHZ["{{AUTHORIZATION}}"]
+        
+        IDENTITY --> JWT
+        AUTH --> IDENTITY
+        AUTHZ --> IDENTITY
+    end
+
+    subgraph PERSISTENCE["{{PERSISTENCE_LAYER}}"]
+        SQL_DB[("SQL Server<br/>{{DATABASE}}")]
+    end
+
+    %% Flux Client vers API
+    BLAZOR --> API
+    STATE -.->|"{{HTTP_REQUESTS}}"| API
+
+    %% Flux API vers Application
+    API --> MEDIATOR
+    AUTH_FILTER --> AUTH
+    VALIDATION --> APPLICATION
+
+    %% Flux Application vers Domain
+    USER_SVC --> USER_ENTITY
+    TICKET_SVC --> TICKET_ENTITY
+    COMMENT_SVC --> COMMENT_ENTITY
+    LOG_SVC --> LOG_ENTITY
+
+    %% Flux Domain vers Infrastructure
+    INTERFACES -.->|"{{IMPLEMENTS}}"| REPOSITORIES
+    
+    %% Flux Infrastructure vers Database
+    EF_CONTEXT --> SQL_DB
+
+    %% Sécurité transverse
+    SECURITY -.->|"{{PROTECTS}}"| API
+    SECURITY -.->|"{{VALIDATES}}"| APPLICATION
+
+    %% Logging transverse
+    LOG_SVC -.->|"{{AUDIT_TRAIL}}"| LOG_REPO
+
+    classDef clientStyle fill:#1e3a5f,stroke:#4a90e2,stroke-width:2px,color:#fff
+    classDef presentationStyle fill:#2d5016,stroke:#7cb342,stroke-width:2px,color:#fff
+    classDef applicationStyle fill:#4a148c,stroke:#9c27b0,stroke-width:2px,color:#fff
+    classDef domainStyle fill:#b71c1c,stroke:#e53935,stroke-width:2px,color:#fff
+    classDef infraStyle fill:#e65100,stroke:#ff9800,stroke-width:2px,color:#fff
+    classDef securityStyle fill:#006064,stroke:#00acc1,stroke-width:2px,color:#fff
+    classDef dbStyle fill:#1b5e20,stroke:#4caf50,stroke-width:2px,color:#fff
+
+    class BLAZOR,STATE clientStyle
+    class API,AUTH_FILTER,VALIDATION presentationStyle
+    class USER_SVC,TICKET_SVC,COMMENT_SVC,NOTIF_SVC,LOG_SVC,MEDIATOR applicationStyle
+    class USER_ENTITY,TICKET_ENTITY,COMMENT_ENTITY,LOG_ENTITY,INTERFACES,BUSINESS_RULES domainStyle
+    class EF_CONTEXT,REPOSITORIES,USER_REPO,TICKET_REPO,COMMENT_REPO,LOG_REPO infraStyle
+    class JWT,IDENTITY,AUTH,AUTHZ securityStyle
+    class SQL_DB dbStyle

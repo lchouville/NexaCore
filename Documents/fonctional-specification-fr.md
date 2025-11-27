@@ -2,8 +2,8 @@
     <a href="readme-fr.md">
         <img src="https://img.icons8.com/material-rounded/48/ffffff/chevron-left.png" width="30" alt="Retour"/>
     </a>
-    <a href="specification-fr.md"><img src="https://img.icons8.com/color/48/000000/france-circular.png" width="30" alt="Français"/></a>
-    <a href="specification.md"><img src="https://img.icons8.com/color/48/000000/great-britain-circular.png" width="30" alt="English"/></a> 
+    <a href="fonctional-specification-fr.md"><img src="https://img.icons8.com/color/48/000000/france-circular.png" width="30" alt="Français"/></a>
+    <a href="fonctional-specification.md"><img src="https://img.icons8.com/color/48/000000/great-britain-circular.png" width="30" alt="English"/></a> 
     NexaCore - Cahier des Charges Fonctionnel<br>
 </h1>
 
@@ -421,7 +421,7 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
 
 ---
 ## Diagrame de Use Case
-[![Diagrame Use Case](use_case-fr.svg)](use_case-fr.svg)
+[![Diagrame Use Case](Graph/fr/userCase.svg)](Graph/fr/Graph/fr/userCase.svg)
 
 ---
 ## Modèle Métier
@@ -505,115 +505,115 @@ Trace des actions importantes sur les tickets.
 ## User Flow
 ### — Utilisateur
 #### `Connection`
-<a href="./UserFlow/user_login.svg">
-  <img src="./UserFlow/user_login.svg" height="600px" alt="Flow user_login.svg" />
+<a href="./Graph/fr/UserFlow/user_login.svg">
+  <img src="./Graph/fr/UserFlow/user_login.svg" height="600px" alt="Flow user_login.svg" />
 </a>
 
 #### `Inscription`
-<a href="./UserFlow/user_register.svg">
-  <img src="./UserFlow/user_login.svg" height="600px" alt="Flow user_register.svg" />
+<a href="./Graph/fr/UserFlow/user_register.svg">
+  <img src="./Graph/fr/UserFlow/user_login.svg" height="600px" alt="Flow user_register.svg" />
 </a>
 
 #### `Mot de passe oublié`
-<a href="./UserFlow/user_password_reset.svg">
-  <img src="./UserFlow/user_password_reset.svg" height="600px" alt="Flow user_password_reset.svg" />
+<a href="./Graph/fr/UserFlow/user_password_reset.svg">
+  <img src="./Graph/fr/UserFlow/user_password_reset.svg" height="600px" alt="Flow user_password_reset.svg" />
 </a>
 
 #### `Edition pseudo`
-<a href="./UserFlow/user_change_username.svg">
-  <img src="./UserFlow/user_change_username.svg" height="600px" alt="Flow user_change_username.svg" />
+<a href="./Graph/fr/UserFlow/user_change_username.svg">
+  <img src="./Graph/fr/UserFlow/user_change_username.svg" height="600px" alt="Flow user_change_username.svg" />
 </a>
 
 #### `Edition email`
-<a href="./UserFlow/user_change_email.svg">
-  <img src="./UserFlow/user_change_email.svg" height="600px" alt="Flow user_change_email.svg" />
+<a href="./Graph/fr/UserFlow/user_change_email.svg">
+  <img src="./Graph/fr/UserFlow/user_change_email.svg" height="600px" alt="Flow user_change_email.svg" />
 </a>
 
 #### `Edition mot de passe`
-<a href="./UserFlow/user_change_password.svg">
-  <img src="./UserFlow/user_change_password.svg" height="600px" alt="Flow user_change_password.svg" />
+<a href="./Graph/fr/UserFlow/user_change_password.svg">
+  <img src="./Graph/fr/UserFlow/user_change_password.svg" height="600px" alt="Flow user_change_password.svg" />
 </a>
 
 #### `Suppression du compte`
-<a href="./UserFlow/user_deletion_confirmation.svg">
-  <img src="./UserFlow/user_deletion_confirmation.svg" height="600px" alt="Flow user_deletion_confirmation.svg" />
+<a href="./Graph/fr/UserFlow/user_deletion_confirmation.svg">
+  <img src="./Graph/fr/UserFlow/user_deletion_confirmation.svg" height="600px" alt="Flow user_deletion_confirmation.svg" />
 </a>
 
 ### — Administrateur
 #### `Lister les utilisateur`
-<a href="./UserFlow/admin_user_view.svg">
-  <img src="./UserFlow/admin_user_view.svg" height="600px" alt="Flow admin_user_view.svg" />
+<a href="./Graph/fr/UserFlow/admin_user_view.svg">
+  <img src="./Graph/fr/UserFlow/admin_user_view.svg" height="600px" alt="Flow admin_user_view.svg" />
 </a>
 
 #### `Promouvoir / Rétrograder`
-<a href="./UserFlow/admin_user_role_update.svg">
-  <img src="./UserFlow/admin_user_role_update.svg" height="600px" alt="Flow admin_user_role_update.svg" />
+<a href="./Graph/fr/UserFlow/admin_user_role_update.svg">
+  <img src="./Graph/fr/UserFlow/admin_user_role_update.svg" height="600px" alt="Flow admin_user_role_update.svg" />
 </a>
 
 #### `Suppression d'utilisateur`
-<a href="./UserFlow/admin_user_deletion_process.svg">
-  <img src="./UserFlow/admin_user_deletion_process.svg" height="600px" alt="Flow admin_user_deletion_process.svg" />
+<a href="./Graph/fr/UserFlow/admin_user_deletion_process.svg">
+  <img src="./Graph/fr/UserFlow/admin_user_deletion_process.svg" height="600px" alt="Flow admin_user_deletion_process.svg" />
 </a>
 
 #### `Modération Contenu`
-<a href="./UserFlow/admin_content_moderation.svg">
-  <img src="./UserFlow/admin_content_moderation.svg" height="600px" alt="Flow admin_content_moderation.svg" />
+<a href="./Graph/fr/UserFlow/admin_content_moderation.svg">
+  <img src="./Graph/fr/UserFlow/admin_content_moderation.svg" height="600px" alt="Flow admin_content_moderation.svg" />
 </a>
 
 ### — Tickets
 #### `Création de ticket`
-<a href="./UserFlow/ticket_create.svg">
-  <img src="./UserFlow/ticket_create.svg" height="600px" alt="Flow ticket_create.svg" />
+<a href="./Graph/fr/UserFlow/ticket_create.svg">
+  <img src="./Graph/fr/UserFlow/ticket_create.svg" height="600px" alt="Flow ticket_create.svg" />
 </a>
 
 #### `Suppression de ticket`
-<a href="./UserFlow/ticket_delete.svg">
-  <img src="./UserFlow/ticket_delete.svg" height="600px" alt="Flow ticket_delete.svg" />
+<a href="./Graph/fr/UserFlow/ticket_delete.svg">
+  <img src="./Graph/fr/UserFlow/ticket_delete.svg" height="600px" alt="Flow ticket_delete.svg" />
 </a>
 
 #### `Modification de ticket`
-<a href="./UserFlow/ticket_update.svg">
-  <img src="./UserFlow/ticket_update.svg" height="600px" alt="Flow ticket_update.svg" />
+<a href="./Graph/fr/UserFlow/ticket_update.svg">
+  <img src="./Graph/fr/UserFlow/ticket_update.svg" height="600px" alt="Flow ticket_update.svg" />
 </a>
 
 #### `Affichage de ticket`
-<a href="./UserFlow/ticket_visibility.svg">
-  <img src="./UserFlow/ticket_visibility.svg" height="600px" alt="Flow ticket_visibility.svg" />
+<a href="./Graph/fr/UserFlow/ticket_visibility.svg">
+  <img src="./Graph/fr/UserFlow/ticket_visibility.svg" height="600px" alt="Flow ticket_visibility.svg" />
 </a>
 
 #### `Assignation ticket`
-<a href="./UserFlow/ticket_assignment.svg">
-  <img src="./UserFlow/ticket_assignment.svg" height="600px" alt="Flow ticket_assignment.svg" />
+<a href="./Graph/fr/UserFlow/ticket_assignment.svg">
+  <img src="./Graph/fr/UserFlow/ticket_assignment.svg" height="600px" alt="Flow ticket_assignment.svg" />
 </a>
 
 ### — Commentaires
 #### `Création de Commentaire`
-<a href="./UserFlow/comment_ticket_create.svg">
-  <img src="./UserFlow/comment_ticket_create.svg" height="600px" alt="Flow comment_ticket_create.svg" />
+<a href="./Graph/fr/UserFlow/comment_ticket_create.svg">
+  <img src="./Graph/fr/UserFlow/comment_ticket_create.svg" height="600px" alt="Flow comment_ticket_create.svg" />
 </a>
 
 #### `Suppression de Commentaire`
-<a href="./UserFlow/comment_ticket_delete.svg">
-  <img src="./UserFlow/comment_ticket_delete.svg" height="600px" alt="Flow comment_ticket_delete.svg" />
+<a href="./Graph/fr/UserFlow/comment_ticket_delete.svg">
+  <img src="./Graph/fr/UserFlow/comment_ticket_delete.svg" height="600px" alt="Flow comment_ticket_delete.svg" />
 </a>
 
 #### `Modification de Commentaire`
-<a href="./UserFlow/comment_ticket_update.svg">
-  <img src="./UserFlow/comment_ticket_update.svg" height="600px" alt="Flow comment_ticket_update.svg" />
+<a href="./Graph/fr/UserFlow/comment_ticket_update.svg">
+  <img src="./Graph/fr/UserFlow/comment_ticket_update.svg" height="600px" alt="Flow comment_ticket_update.svg" />
 </a>
 
 ### — Journalisation
 #### `Journal Utilisateur`
-<a href="./UserFlow/log_action_user.svg">
-  <img src="./UserFlow/log_action_user.svg" height="600px" alt="Flow log_action_user.svg" />
+<a href="./Graph/fr/UserFlow/log_action_user.svg">
+  <img src="./Graph/fr/UserFlow/log_action_user.svg" height="600px" alt="Flow log_action_user.svg" />
 </a>
 
 #### `Journal Administrateur`
-<a href="./UserFlow/log_action_admin.svg">
-  <img src="./UserFlow/log_action_admin.svg" height="600px" alt="Flow log_action_admin.svg" />
+<a href="./Graph/fr/UserFlow/log_action_admin.svg">
+  <img src="./Graph/fr/UserFlow/log_action_admin.svg" height="600px" alt="Flow log_action_admin.svg" />
 </a>
 
 #### `Journal Contenu`
-<a href="./UserFlow/log_action_content.svg">
-  <img src="./UserFlow/log_action_content.svg" height="600px" alt="Flow log_action_content.svg" />
+<a href="./Graph/fr/UserFlow/log_action_content.svg">
+  <img src="./Graph/fr/UserFlow/log_action_content.svg" height="600px" alt="Flow log_action_content.svg" />
 </a>

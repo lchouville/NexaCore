@@ -1,12 +1,64 @@
-# options and arguments at execution time:
-# mmdToSVG | -m : convert all mermaid files to SVG
 #!/bin/bash
 
+##############################################
+#               AIDE
+##############################################
+show_help() {
+    cat << EOF
+Usage: $0 [OPTIONS] [ARGUMENTS]
+
+Options:
+  -m, --mmdToSVG [OPTIONS] [FICHIERS...]
+                        Convertir les fichiers Mermaid en SVG
+                        
+Options pour -m:
+  -a, --all            Générer tous les fichiers (défaut)
+  FICHIERS...          Liste de fichiers spécifiques à traiter
+  
+Exemples:
+  $0 -m                              # Tout générer
+  $0 -m -a                           # Tout générer (explicite)
+  $0 -m diagram1.mmd                 # Un fichier spécifique
+  $0 -m diagram1.mmd diagram2.mmd            # Plusieurs fichiers
+  $0 -m subfolder/diagram.mmd        # Fichier dans sous-dossier
+  
+Autres options:
+  -s, --status          Afficher le statut
+  -h, --help            Afficher cette aide
+
+EOF
+}
+
+##############################################
+#         TRAITEMENT DES OPTIONS
+##############################################
 case "$1" in
     -m|--mmdToSVG)
-        ./Script/generate_mmd-svg.sh
+        shift  # Enlever le premier argument (-m)
+        
+        # Passer tous les arguments restants au script
+        if [[ $# -eq 0 ]]; then
+            # Aucun argument supplémentaire = tout générer
+            ./Script/generate_mmd-svg.sh -a
+        else
+            # Passer tous les arguments au script
+            ./Script/generate_mmd-svg.sh "$@"
+        fi
         ;;
+        
+    -s|--status)
+        # Votre code pour status
+        echo "Status..."
+        ;;
+        
+    -h|--help)
+        show_help
+        ;;
+        
     *)
-        echo "Usage: $0 {-s|--status|-m|--mmdToSVG}"
+        echo "❌ Option inconnue : $1"
+        echo ""
+        show_help
+        exit 1
         ;;
 esac
