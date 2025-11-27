@@ -1,0 +1,20 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+flowchart TD
+A["{{ADMIN_OPEN_MODERATION}}"] --> B["{{ADMIN_SELECT_COMMENT}}"]
+B --> C["{{ADMIN_CLICK_DELETE}}"]
+C --> D["{{FORM_CHOOSE_REASON}}"]
+D --> E["{{ADMIN_CONFIRM}}"]
+E --> F["{{SEND_DELETE_REQUEST}}"]
+F --> G["{{BACKEND_VERIFY}}:  
+- {{AUTH_ADMIN}}  
+- {{OPTIONAL_FIELDS}}"]
+G -->|OK| H["{{DELETE_IN_DB}}"]
+G -->|"{{ERROR}}"| G1["{{RETURN_ERROR}}: 401, 403"]
+H --> I["{{SEND_EMAIL_USER}}"]
+I --> J["{{RETURN_SUCCESS_ADMIN}}"]
+J --> K["{{UPDATE_COMMENT_LIST}}"]

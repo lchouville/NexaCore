@@ -1,0 +1,19 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+flowchart TD
+A["{{USER_OPEN_ACCOUNT_SETTINGS}}"] --> B["{{USER_CLICK_CHANGE_USERNAME}}"]
+B --> C["{{DISPLAY_FORM_CURRENT_USERNAME}}"]
+C --> D["{{USER_ENTER_NEW_USERNAME}}"]
+D --> E["{{USER_CLICK_SAVE}}"]
+E --> F["{{FRONTEND_VALIDATE_USERNAME}}"]
+F -->|"{{VALIDATED}}"| G["{{SEND_PUT_REQUEST_USERNAME}}"]
+F -->|"{{ERROR}}"| F1["{{DISPLAY_ERROR}}"]
+G --> H["{{BACKEND_VERIFY_USERNAME}}"]
+H -->|"{{OK}}"| I["{{UPDATE_USERNAME_DB}}"]
+H -->|"{{ERROR}}"| H1["{{ERROR_CONFLICT_FORMAT_AUTH}}"]
+I --> J["{{RETURN_SUCCESS_TO_FRONTEND}}"]
+J --> K["{{UPDATE_UI_SUCCESS_MESSAGE}}"]

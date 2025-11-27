@@ -1,0 +1,13 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+graph TD
+A["{{LAYER_PRESENTATION}}: Blazor"] --> B["{{LAYER_APPLICATION}}: .NET"]
+B --> C["{{LAYER_DOMAIN}}: DDD"]
+C --> D["{{LAYER_INFRASTRUCTURE}}: EF Core + SQL"]
+D --> E["({{DATABASE}})"]
+B --> F["{{SECURITY}}: JWT/Identity"]
+F --> B

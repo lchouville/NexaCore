@@ -1,0 +1,15 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+flowchart TD
+A["{{ADMIN_OPEN_ADMIN_INTERFACE}}"] --> B["{{ADMIN_NAVIGATE_USER_MANAGEMENT}}"]
+B --> C["{{SYSTEM_FETCH_USER_LIST}}"]
+C --> D["{{SYSTEM_DISPLAY_USER_INFO}}"]
+D --> E{"{{ADMIN_WANT_FILTER_SEARCH}}?"}
+E -- "{{YES}}" --> F["{{ADMIN_APPLY_FILTER_SEARCH}}"]
+F --> C
+E -- "{{NO}}" --> G["{{ADMIN_VIEW_USER}}"]
+G --> H["{{END}}"]

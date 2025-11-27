@@ -1,0 +1,18 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+flowchart TD
+A["{{USER}}"] --> B["{{OPEN_LOGIN_PAGE}}"]
+B --> C["{{ENTER_EMAIL_PASSWORD}}"]
+C --> D["{{VALIDATE_FORM}}"]
+D -->|"{{INVALID_FIELDS}}"| E["{{DISPLAY_ERRORS}}"]
+E --> C
+D -->|"{{VALID_FIELDS}}"| F["{{API_VERIFY_USER}}"]
+F -->|"{{INVALID_CREDENTIALS}}"| G["{{ERROR_INVALID_CREDENTIALS}}"]
+G --> C
+F -->|"{{OK}}"| H["{{API_GENERATE_JWT_TOKEN}}"]
+H --> I["{{LOGIN_SUCCESS}}"]
+I --> J["{{REDIRECT_DASHBOARD}}"]

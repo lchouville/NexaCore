@@ -1,0 +1,12 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+flowchart TD
+A["{{ADMIN_PERFORM_CRITICAL_ACTION}}"] --> B["{{SYSTEM_MARK_AS_SENSITIVE}}"]
+B --> C["{{CREATE_LOG_ENTRY_METADATA}}"]
+C --> D["{{SAVE_GLOBAL_HISTORY}}"]
+D --> E["{{OPTIONAL_INTERNAL_AUDIT_NOTIF}}"]
+E --> F["{{END}}"]

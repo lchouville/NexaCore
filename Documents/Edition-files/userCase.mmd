@@ -1,0 +1,73 @@
+---
+config:
+  layout: elk
+---
+flowchart LR
+subgraph date["22:03 24/11/2025"]
+%% Bloc Define 
+subgraph VIS["{{VISITOR}}"]
+Visitor(["{{VISITOR}}"])
+Login("{{LOGIN}}")
+Register("{{REGISTER}}")
+ForgotPW("{{FORGOT_PASSWORD}}")
+end
+subgraph USR["{{USER}}"]
+User(["{{USER}}"])
+Logout("{{LOGOUT}}")
+DelAccount("{{DELETE_ACCOUNT}}")
+EditProfile("{{EDIT_PROFILE}}")
+Tickets("{{MANAGE_TICKETS}}")
+Comments("{{MANAGE_COMMENTS}}")
+Pseudo("{{CHANGE_USERNAME}}")
+Email("{{CHANGE_EMAIL}}")
+Password("{{CHANGE_PASSWORD}}")
+CreateTicket("{{CREATE_TICKET}}")
+ListTicket("{{LIST_TICKETS}}")
+ViewTicket("{{VIEW_TICKET}}")
+EditTicket("{{EDIT_TICKET}}")
+AssignTicket("{{ASSIGN_TICKET}}")
+DeleteTicket("{{DELETE_TICKET}}")
+CreateComment("{{CREATE_COMMENT}}")
+EditComment("{{EDIT_COMMENT}}")
+DeleteComment("{{DELETE_COMMENT}}")
+end
+subgraph ADM["{{ADMINISTRATOR}}"]
+Admin(["{{ADMINISTRATOR}}"])
+MngUsers("{{MANAGE_USERS}}")
+Moderation("{{MODERATION}}")
+DeleteUser("{{DELETE_USER}}")
+ChangeRole("{{CHANGE_ROLE}}")
+DeleteTicketMod("{{DELETE_USER_TICKET}}")
+DeleteCommentMod("{{DELETE_USER_COMMENT}}")
+end
+%% Relation declaration
+Visitor --> Login & Register & ForgotPW
+User --> Logout & DelAccount & EditProfile & Tickets & Comments
+EditProfile --- Pseudo & Email & Password
+Tickets --- CreateTicket & ListTicket & ViewTicket & EditTicket & AssignTicket & DeleteTicket
+Comments --- CreateComment & EditComment & DeleteComment
+Admin --> MngUsers & Moderation
+MngUsers --- DeleteUser & ChangeRole
+Moderation --- DeleteTicketMod & DeleteCommentMod
+Register -.-> Journal("{{LOG_ACTIONS}}")
+ForgotPW -.-> Journal
+Logout -.-> Journal
+DelAccount -.-> Journal
+Pseudo -.-> Journal
+Email -.-> Journal
+Password -.-> Journal
+CreateTicket -.-> Journal
+EditTicket -.-> Journal
+AssignTicket -.-> Journal
+DeleteTicket -.-> Journal
+CreateComment -.-> Journal
+EditComment -.-> Journal
+DeleteComment -.-> Journal
+DeleteUser -.-> Journal
+ChangeRole -.-> Journal
+DeleteTicketMod -.-> Journal
+DeleteCommentMod -.-> Journal
+style VIS fill:#FFF2CC,stroke:#d6b656,stroke-width:2px
+style USR fill:#DAE8FC,stroke:#6c8ebf,stroke-width:2px
+style ADM fill:#E1D5E7,stroke:#9673a6,stroke-width:2px
+end

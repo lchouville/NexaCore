@@ -1,0 +1,15 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+flowchart TD
+A["{{USER}}"] --> B["{{OPEN_TICKET}}"]
+B --> C["{{ENTER_COMMENT}}"]
+C --> D["{{VALIDATE}}"]
+D -->|"{{EMPTY_FIELDS}}"| E["{{ERROR}}"]
+E --> C
+D -->|OK| F["{{API_ADD_COMMENT}}"]
+F --> G["{{SAVE_ACTION_HISTORY}}"]
+G --> H["{{DISPLAY_COMMENT_ADDED}}"]

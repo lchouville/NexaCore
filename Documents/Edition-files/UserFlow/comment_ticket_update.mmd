@@ -1,0 +1,22 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+flowchart TD
+A["{{USER_OPEN_POST_OR_PROFILE}}"] --> B["{{USER_CLICK_EDIT_COMMENT}}"]
+B --> C["{{LOAD_EXISTING_COMMENT}}"]
+C --> D["{{USER_MODIFY_COMMENT_TEXT}}"]
+D --> E["{{USER_CLICK_UPDATE}}"]
+E --> F["{{FRONTEND_VALIDATE_FIELDS}}"]
+F -->|"{{VALIDATED}}"| G["{{SEND_UPDATE_REQUEST}}"]
+F -->|"{{ERROR}}"| F1["{{DISPLAY_ERROR_INVALID_TEXT}}"]
+G --> H["{{BACKEND_VERIFY}}:  
+- {{AUTHENTICATION}}  
+- {{COMMENT_OWNERSHIP}}  
+- {{VALID_FIELDS}}"]
+H -->|OK| I["{{UPDATE_COMMENT_DB}}"]
+H -->|"{{ERROR}}"| H1["{{RETURN_ERROR}}: 401, 403 ou 400"]
+I --> J["{{RETURN_SUCCESS_FRONTEND}}"]
+J --> K["{{DISPLAY_UPDATED_COMMENT}}"]

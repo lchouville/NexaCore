@@ -1,0 +1,16 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+flowchart TD
+U["{{USER}}"] --> A["{{REQUEST_ACCOUNT_DELETION}}"]
+A --> B["{{DISPLAY_CONFIRMATION_EMAIL_SENT}}"]
+B --> C["{{AUTO_SEND_CONFIRMATION_EMAIL}}"]
+C --> D["{{USER_CLICK_EMAIL_LINK}}"]
+D --> E["{{BACKEND_VERIFY_LINK}}"]
+E -->|"{{VALID}}"| F["{{ACCOUNT_DELETION}}"]
+F --> G["{{LOG_ACTION}}"]
+G --> H["{{SEND_CONFIRMATION_EMAIL_DELETED}}"]
+E -->|"{{INVALID_FIELDS}}"| X["{{ERROR_LINK_EXPIRED_INVALID}}"]

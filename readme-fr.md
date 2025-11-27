@@ -10,7 +10,9 @@
 ### Télécharger le dépôt
 
 ## 📚 Documentation
-- [Cahier des Charges](Documents/specification-fr.md)
+- **Cahier des charges**
+  - [Cahier des Charges Fonctionnel](Documents/fonctional-specification-fr.md)
+  - [Cahier des Charges Technique](Documents/tecnical-specification-fr.md)
 
 ## 👤 Auteurs et collaborateurs
 <table style="border-collapse: collapse; border: none; width: 100%">

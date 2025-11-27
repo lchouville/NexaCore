@@ -1,0 +1,14 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+flowchart TD
+A["{{ADMINISTRATOR}}"] --> B["{{ACCESS_USER_PROFILE}}"]
+B --> C["{{CLICK_DELETE_USER}}"]
+C --> D["{{FORM_ENTER_REASON_DELETE}}"]
+D --> E["{{VALIDATE_ACTION}}"]
+E --> F["{{IMMEDIATE_USER_DELETION}}"]
+F --> G["{{LOG_ACTION}}"]
+G --> H["{{AUTO_SEND_EMAIL_USER}}<br/>• {{ACCOUNT_DELETED}}<br/>• {{REASON_PROVIDED_ADMIN}}"]

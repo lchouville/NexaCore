@@ -1,0 +1,15 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+flowchart TB
+A["{{USER}}"] --> B["{{OPEN_NEW_TICKET_PAGE}}"]
+B --> C["{{ENTER_TITLE_DESC_PRIORITY}}"]
+C --> D["{{VALIDATE}}"]
+D -- "{{INVALID_FIELDS}}" --> E["{{DISPLAY_ERRORS}}"]
+E --> C
+D -- "{{VALID}}" --> F["{{API_CREATE_TICKET}}"]
+F --> G["{{SAVE_HISTORY_CREATION}}"]
+G --> H["{{DISPLAY_CREATED_TICKET}}"]

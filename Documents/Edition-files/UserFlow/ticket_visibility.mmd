@@ -1,0 +1,11 @@
+---
+config:
+theme: dark
+look: classic
+layout: dagre
+---
+flowchart TD
+A["{{USER}}"] --> B["{{OPEN_TICKET_LIST}}"]
+B --> C["{{API_FETCH_VISIBLE_TICKETS}}"]
+C -->|"{{STANDARD_USER}}"| D["{{DISPLAY_USER_TICKETS}}"]
+C -->|"{{ADMIN}}"| E["{{DISPLAY_ALL_TICKETS}}"]

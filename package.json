@@ -1,0 +1,23 @@
+{
+  "name": "nexacore",
+  "version": "1.0.0",
+  "description": "<h1>     <a href=\"readme.md\"><img src=\"https://img.icons8.com/color/48/000000/great-britain-circular.png\" width=\"30\" alt=\"English\"/></a>      <a href=\"readme-fr.md\"><img src=\"https://img.icons8.com/color/48/000000/france-circular.png\" width=\"30\" alt=\"Français\"/></a>     NexaCore </h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lchouville/NexaCore.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lchouville/NexaCore/issues"
+  },
+  "homepage": "https://github.com/lchouville/NexaCore#readme",
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "^11.12.0"
+  }
+}
