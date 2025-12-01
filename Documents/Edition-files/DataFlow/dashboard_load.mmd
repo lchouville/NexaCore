@@ -1,0 +1,15 @@
+---
+config:
+  theme: dark
+  look: classic
+  layout: flowchart
+---
+flowchart LR
+    U["{{USER}}"] -->|"{{ACCESS_DASHBOARD}}"| BLAZOR["{{BLAZOR_CLIENT}}"]
+    BLAZOR -->|"GET /tickets (JWT)"| API["{{API_TICKET}}"]
+    API --> MEDIATOR["{{MEDIATOR_QUERY}}"]
+    MEDIATOR --> SERVICE["{{TICKET_SERVICE}}"]
+    SERVICE --> REPO["{{TICKET_REPO}}"]
+    REPO --> DB["({{SQL_DB}})"]
+    API -->|"{{TICKETS_RETURNED}}"| BLAZOR
+    BLAZOR --> STATE["{{STATE_MANAGER}}"]

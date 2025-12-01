@@ -1,0 +1,14 @@
+---
+config:
+  theme: dark
+  look: classic
+  layout: flowchart
+---
+flowchart LR
+    USER["{{USER}}"] --> CREDS["{{CREDENTIALS_INPUT}}"]
+    CREDS --> BLAZOR["{{BLAZOR_CLIENT}}"]
+    BLAZOR -->|"POST /auth/login"| API["{{API_AUTH}}"]
+    API --> IDSYS["{{IDENTITY_SYSTEM}}"]
+    IDSYS -->|"{{CREDS_OK}}"| JWT["{{JWT_TOKEN}}"]
+    JWT --> STORE["{{STORE_LOCAL}}"]
+    STORE --> STATE["{{STATE_MANAGER}}"]

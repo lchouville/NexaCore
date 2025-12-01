@@ -1,0 +1,16 @@
+---
+config:
+  theme: dark
+  look: classic
+  layout: flowchart
+---
+flowchart LR
+    USER["{{USER}}"] --> COMMENT["{{COMMENT_INPUT}}"]
+    COMMENT --> BLAZOR["{{BLAZOR_CLIENT}}"]
+    BLAZOR -->|"POST /comments (JWT)"| API_COMMENT["{{API_COMMENT}}"]
+    API_COMMENT --> MEDIATOR["{{MEDIATOR_COMMAND}}"]
+    MEDIATOR --> COMMENT_SVC["{{COMMENT_SERVICE}}"]
+    COMMENT_SVC --> COMMENT_REPO["{{COMMENT_REPO}}"]
+    COMMENT_REPO --> DB["({{SQL_DB}})"]
+    DB --> ADDED["{{COMMENT_ADDED}}"]
+    ADDED --> BLAZOR

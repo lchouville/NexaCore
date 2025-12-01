@@ -562,18 +562,18 @@ Trace des actions importantes sur les tickets.
 
 ### — Tickets
 #### `Création de ticket`
-<a href="./Graph/fr/UserFlow/ticket_create.svg">
-  <img src="./Graph/fr/UserFlow/ticket_create.svg" height="600px" alt="Flow ticket_create.svg" />
+<a href="./Graph/fr/UserFlow/ticket-create.svg">
+  <img src="./Graph/fr/UserFlow/ticket-create.svg" height="600px" alt="Flow ticket_create.svg" />
 </a>
 
 #### `Suppression de ticket`
-<a href="./Graph/fr/UserFlow/ticket_delete.svg">
-  <img src="./Graph/fr/UserFlow/ticket_delete.svg" height="600px" alt="Flow ticket_delete.svg" />
+<a href="./Graph/fr/UserFlow/ticket-delete.svg">
+  <img src="./Graph/fr/UserFlow/ticket-delete.svg" height="600px" alt="Flow ticket_delete.svg" />
 </a>
 
 #### `Modification de ticket`
-<a href="./Graph/fr/UserFlow/ticket_update.svg">
-  <img src="./Graph/fr/UserFlow/ticket_update.svg" height="600px" alt="Flow ticket_update.svg" />
+<a href="./Graph/fr/UserFlow/ticket-update.svg">
+  <img src="./Graph/fr/UserFlow/ticket-update.svg" height="600px" alt="Flow ticket_update.svg" />
 </a>
 
 #### `Affichage de ticket`

@@ -1,0 +1,16 @@
+---
+config:
+  theme: dark
+  look: classic
+  layout: flowchart
+---
+flowchart LR
+    USER["{{USER}}"] --> ACCESS["{{ACCESS_DASHBOARD}}"]
+    ACCESS --> BLAZOR_CLIENT["{{BLAZOR_CLIENT}}"]
+    BLAZOR_CLIENT --> API_TICKET["{{API_TICKET}}"]
+    API_TICKET --> MEDIATOR["{{MEDIATOR_QUERY}}"]
+    MEDIATOR --> TICKET_SERVICE["{{TICKET_SERVICE}}"]
+    TICKET_SERVICE --> TICKET_REPO["{{TICKET_REPO}}"]
+    TICKET_REPO --> SQL_DB["{{SQL_DB}}"]
+    SQL_DB --> RESULT["{{TICKETS_RETURNED}}"]
+    RESULT --> BLAZOR_CLIENT
