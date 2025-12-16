@@ -1,0 +1,20 @@
+---
+config:
+    theme: dark
+    look: classic
+    layout: dagre
+---
+flowchart TD
+
+%% Nodes definition
+A["{{MODIFICATION_TICKET_COMMENT}}"] 
+B["{{DETECT_ACTION_TYPE}}"]
+C["{{ASSOCIATE_ACTION_TICKET}}"]
+D["{{RECORD_ACTION_DETAILS}}"]
+E["{{UPDATE_TICKET_TIMELINE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D --> E

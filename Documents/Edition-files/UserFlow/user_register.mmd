@@ -5,17 +5,26 @@ config:
     layout: dagre
 ---
 flowchart TB
-A["{{USER}}"] --> B@{ label: "{{OPEN_REGISTRATION_PAGE}}" }
-B --> C["{{ENTER_EMAIL_USERNAME_PASSWORD}}"]
-C --> D["{{VALIDATE_REGISTRATION_FORM}}"]
-D -- "{{INVALID_FIELDS}}" --> E["{{DISPLAY_VALIDATION_ERRORS}}"]
-E --> C
-D -- "{{VALID_FIELDS}}" --> F@{ label: "{{API_CHECK_EMAIL_EXISTS}}" }
-F -- "{{EMAIL_ALREADY_USED}}" --> G["{{DISPLAY_EMAIL_REGISTERED}}"]
-G --> C
-F -- "{{EMAIL_AVAILABLE}}" --> H@{ label: "{{API_CREATE_USER}}" }
-H --> I["{{API_SEND_CONFIRMATION_EMAIL}}"]
-I --> J["{{DISPLAY_ACCOUNT_CREATED}}"]
-B@{ shape: rect}
-F@{ shape: rect}
-H@{ shape: rect}
+
+%% Nodes definition
+A["{{VISITOR}}"]
+B["{{OPEN_REGISTRATION_PAGE}}"]
+C["{{VISITOR}} {{FILL_FIELDS}}"]
+D["{{CLICK_SUBMIT}}"]
+En["{{DISPLAY_ERROR}} {{INVALID_FIELDS}}"]
+En2["{{DISPLAY_ERROR}} {{EMAIL_ALREADY_USED}}"]
+Ey["{{CREATE_ACCOUNT}}"]
+F["{{DISPLAY_SUCCESS_MESSAGE}}"]
+G["{{REDIRECT_LOGIN_PAGE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D -->|"{{INVALID_FIELDS}}"| En
+En --> C
+D -->|"{{EMAIL_ALREADY_USED}}"| En2
+En2 --> C
+D -->|"{{OK}}"| Ey
+Ey --> F
+F --> G

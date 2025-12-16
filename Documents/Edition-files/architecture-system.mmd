@@ -34,8 +34,8 @@ flowchart TB
         EF_CONTEXT["EF Core DbContext"]
         REPOSITORIES["{{REPOSITORIES}}"]
         USER_REPO["{{REPO_USER}}"]
-        TICKET_REPO["{{REPO_TICKET}}"]
-        COMMENT_REPO["{{REPO_COMMENT}}"]
+        REPO_TICKET["{{REPO_TICKET}}"]
+        REPO_COMMENT["{{REPO_COMMENT}}"]
         LOG_REPO["{{REPO_LOG}}"]
   end
  subgraph SECURITY["{{SECURITY_LAYER}}"]
@@ -53,10 +53,10 @@ flowchart TB
     USER_ENTITY --> BUSINESS_RULES
     TICKET_ENTITY --> BUSINESS_RULES
     COMMENT_ENTITY --> BUSINESS_RULES
-    REPOSITORIES --> USER_REPO & TICKET_REPO & COMMENT_REPO & LOG_REPO
+    REPOSITORIES --> USER_REPO & REPO_TICKET & REPO_COMMENT & LOG_REPO
     USER_REPO --> EF_CONTEXT
-    TICKET_REPO --> EF_CONTEXT
-    COMMENT_REPO --> EF_CONTEXT
+    REPO_TICKET --> EF_CONTEXT
+    REPO_COMMENT --> EF_CONTEXT
     LOG_REPO --> EF_CONTEXT
     IDENTITY --> JWT
     AUTH --> IDENTITY
@@ -70,7 +70,7 @@ flowchart TB
     LOG_SVC --> LOG_ENTITY
     INTERFACES -. {{IMPLEMENTS}} .-> REPOSITORIES
     EF_CONTEXT --> SQL_DB
-    SECURITY -. {{PROTECTS}} .-> API
+    SECURITY -. {{PROJECTS}} .-> API
     SECURITY -. {{VALIDATES}} .-> APPLICATION
     LOG_SVC -. {{AUDIT_TRAIL}} .-> LOG_REPO
 
@@ -94,8 +94,8 @@ flowchart TB
      EF_CONTEXT:::infraStyle
      REPOSITORIES:::infraStyle
      USER_REPO:::infraStyle
-     TICKET_REPO:::infraStyle
-     COMMENT_REPO:::infraStyle
+     REPO_TICKET:::infraStyle
+     REPO_COMMENT:::infraStyle
      LOG_REPO:::infraStyle
      JWT:::securityStyle
      IDENTITY:::securityStyle

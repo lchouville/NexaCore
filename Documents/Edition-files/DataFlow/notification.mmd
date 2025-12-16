@@ -5,15 +5,26 @@ config:
   layout: flowchart
 ---
 flowchart LR
-    EVENT["{{EVENT_SOURCE}}"] --> NOTIF_SVC["{{NOTIF_SERVICE}}"]
+
+%% Nodes definition
+    EVENT["{{EVENT_SOURCE}}"] 
+    NOTIF_SVC["{{NOTIF_SERVICE}}"]
 
     subgraph PERSISTANCE
-        NOTIF_SVC --> NOTIF_REPO["{{NOTIF_REPO}}"]
-        NOTIF_REPO --> SQL_DB["{{SQL_DB}}"]
+        REPO_NOTIF["{{REPO_NOTIF}}"]
+        SQL_DB["{{SQL_DB}}"]
     end
 
     subgraph PUSH_FLOW
-        NOTIF_SVC --> PUSH["{{PUSH_SIGNALR}}"]
-        PUSH --> HUB["{{SIGNALR_HUB}}"]
-        HUB --> CLIENTS["{{CLIENT_CONNECTED}}"]
+        PUSH["{{PUSH_SIGNALR}}"]
+        HUB["{{SIGNALR_HUB}}"]
+        CLIENTS["{{CLIENT_CONNECTED}}"]
     end
+
+%% Flow definition
+    EVENT --> NOTIF_SVC
+    NOTIF_SVC --> REPO_NOTIF
+    REPO_NOTIF --> SQL_DB
+    NOTIF_SVC --> PUSH
+    PUSH --> HUB
+    HUB --> CLIENTS

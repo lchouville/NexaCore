@@ -5,12 +5,22 @@ config:
     layout: dagre
 ---
 flowchart TD
-U["{{USER}}"] --> A["{{REQUEST_ACCOUNT_DELETION}}"]
-A --> B["{{DISPLAY_CONFIRMATION_EMAIL_SENT}}"]
-B --> C["{{AUTO_SEND_CONFIRMATION_EMAIL}}"]
-C --> D["{{USER_CLICK_EMAIL_LINK}}"]
-D --> E["{{BACKEND_VERIFY_LINK}}"]
-E -->|"{{VALID}}"| F["{{ACCOUNT_DELETION}}"]
-F --> G["{{LOG_ACTION}}"]
-G --> H["{{SEND_CONFIRMATION_EMAIL_DELETED}}"]
-E -->|"{{INVALID_FIELDS}}"| X["{{ERROR_LINK_EXPIRED_INVALID}}"]
+
+%% Nodes definition
+A["{{USER}}"] 
+B["{{OPEN_ACCOUNT_SETTINGS}}"]
+C["{{CLICK_DELETE_ACCOUNT}}"]
+D["{{DISPLAY_CONFIRMATION_EMAIL_SENT}}"]
+E["{{USER_CLICK_EMAIL_LINK}}"]
+Fn["{{DISPLAY_ERROR}} {{LINK_EXPIRED_INVALID}}"]
+Fy["{{ACCOUNT_DELETED}}"]
+G["{{DISPLAY_SUCCESS_MESSAGE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D --> E
+E -->|"{{LINK_EXPIRED_INVALID}}"| Fn
+E -->|"{{LINK_VALID}}"| Fy
+Fy --> G

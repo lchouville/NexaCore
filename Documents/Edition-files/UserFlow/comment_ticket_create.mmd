@@ -5,11 +5,21 @@ config:
     layout: dagre
 ---
 flowchart TD
-A["{{USER}}"] --> B["{{OPEN_TICKET}}"]
-B --> C["{{ENTER_COMMENT}}"]
-C --> D["{{VALIDATE}}"]
-D -->|"{{EMPTY_FIELDS}}"| E["{{ERROR}}"]
-E --> C
-D -->|OK| F["{{API_ADD_COMMENT}}"]
-F --> G["{{SAVE_ACTION_HISTORY}}"]
-G --> H["{{DISPLAY_COMMENT_ADDED}}"]
+
+%% Nodes definition
+A["{{USER}}"]
+B["{{OPEN_TICKET}}"]
+C["{{ENTER_COMMENT}}"] 
+D["{{VALIDATE}}"]
+En["{{DISPLAY_ERROR}} {{EMPTY_FIELDS}}"]
+Ey["{{ADD_COMMENT}}"]
+F["{{DISPLAY_SUCCESS_MESSAGE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D -->|"{{EMPTY_FIELDS}}"| En
+En --> C
+D -->|"{{OK}}"| Ey
+Ey --> F

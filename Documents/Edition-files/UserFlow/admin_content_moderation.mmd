@@ -1,0 +1,30 @@
+---
+config:
+    theme: dark
+    look: classic
+    layout: dagre
+---
+flowchart TD
+
+%% Nodes definition
+A["{{ADMIN}}"]
+B["{{ADMIN_OPEN_MODERATION}}"]
+C["{{ADMIN_SELECT_CONTENT}}"]
+D["{{ADMIN_CLICK_DELETE}}"]
+E["{{FORM_CHOOSE_REASON}}"]
+F["{{CONFIRM_DELETE}}"]
+Gy["{{DELETE_CONTENT}}"]
+Gn["{{RETURN_ERROR}}"]
+H["{{SEND_EMAIL_USER}}"]
+I["{{DISPLAY_SUCCESS_MESSAGE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F -->|"{{ERROR}}"| Gn
+F -->|"{{OK}}"| Gy
+Gy --> H
+H --> I

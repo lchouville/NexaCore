@@ -102,7 +102,7 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
 - Modifier un ticket
 - Changer statut
 - Supprimer un ticket
-- Afficher tous les tickets d’un utilisateur
+- Afficher tous les tickets d"un utilisateur
 
 ### — Commentaires
 - Ajouter un commentaire à un ticket
@@ -119,13 +119,13 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
     - Assignés à moi
 
 ### — Notifications simples
-- Notification locale dans l’interface (pas de push)
-    - Ex : “Ticket mis à jour”, “Assigné à vous”
+- Notification locale dans l"interface (pas de push)
+    - Ex : "Ticket mis à jour", "Assigné à vous"
 
 ### — Sécurité
 - Authentification par JWT
 - Protection des routes/API
-- Règles d’accès :
+- Règles d"accès :
     - Un utilisateur ne voit que ses tickets
     - Sauf admin qui voit tout
 
@@ -140,7 +140,7 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>User Story<p>
         </td>
         <td>
-            <p>Critères d’acceptation<p>
+            <p>Critères d"acceptation<p>
         </td>
         <td>
             <p>Priorité</p>
@@ -151,7 +151,7 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux créer un ticket, afin de suivre une tâche à effectuer.</p>
+            <p>En tant qu"utilisateur, je veux créer un ticket, afin de suivre une tâche à effectuer.</p>
         </td>
         <td>
             <ul>
@@ -169,7 +169,7 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux modifier un ticket dont je suis le créateur ou l’assigné, afin de maintenir ses informations à jour.</p>
+            <p>En tant qu"utilisateur, je veux modifier un ticket dont je suis le créateur ou l"assigné, afin de maintenir ses informations à jour.</p>
         </td>
         <td>
             <ul>
@@ -188,7 +188,7 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux changer le statut d’un ticket, afin de refléter son avancement.</p>
+            <p>En tant qu"utilisateur, je veux changer le statut d"un ticket, afin de refléter son avancement.</p>
         </td>
         <td>
             <ul>
@@ -206,7 +206,7 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux supprimer un ticket que j’ai créé, afin d’éliminer une tâche devenue inutile.</p>
+            <p>En tant qu"utilisateur, je veux supprimer un ticket que j"ai créé, afin d"éliminer une tâche devenue inutile.</p>
         </td>
         <td>
             <ul>
@@ -224,12 +224,12 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux filtrer mes tickets, afin de retrouver rapidement certaines catégories de tâches.</p>
+            <p>En tant qu"utilisateur, je veux filtrer mes tickets, afin de retrouver rapidement certaines catégories de tâches.</p>
         </td>
         <td>
             <ul>
                 <li>Étant donné plusieurs tickets</li>
-                <li>Lorsque j’applique un filtre (statut, priorité, assignation)</li>
+                <li>Lorsque j"applique un filtre (statut, priorité, assignation)</li>
                 <li>Alors seuls les tickets correspondants apparaissent</li>
             </ul>
         </td>
@@ -242,12 +242,12 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux rechercher un ticket par mot-clé, afin de le retrouver rapidement.</p>
+            <p>En tant qu"utilisateur, je veux rechercher un ticket par mot-clé, afin de le retrouver rapidement.</p>
         </td>
         <td>
             <ul>
                 <li>Étant donné plusieurs tickets</li>
-                <li>Lorsque j’effectue une recherche</li>
+                <li>Lorsque j"effectue une recherche</li>
                 <li>Alors seuls mes tickets correspondant au mot-clé sont affichés</li>
             </ul>
         </td>
@@ -260,13 +260,13 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux ajouter un commentaire à un ticket auquel j’ai accès, afin de documenter son contexte.</p>
+            <p>En tant qu"utilisateur, je veux ajouter un commentaire à un ticket auquel j"ai accès, afin de documenter son contexte.</p>
         </td>
         <td>
             <ul>
-                <li>Étant donné un ticket auquel j’ai accès</li>
-                <li>Lorsque j’ajoute un commentaire valide</li>
-                <li>Alors il est enregistré et visible dans l’historique</li>
+                <li>Étant donné un ticket auquel j"ai accès</li>
+                <li>Lorsque j"ajoute un commentaire valide</li>
+                <li>Alors il est enregistré et visible dans l"historique</li>
             </ul>
         </td>
         <td>
@@ -278,11 +278,11 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux modifier ou supprimer mes commentaires, afin de corriger ou clarifier mes messages.</p>
+            <p>En tant qu"utilisateur, je veux modifier ou supprimer mes commentaires, afin de corriger ou clarifier mes messages.</p>
         </td>
         <td>
             <ul>
-                <li>Étant donné un commentaire que j’ai écrit</li>
+                <li>Étant donné un commentaire que j"ai écrit</li>
                 <li>Lorsque je le modifie ou supprime</li>
                 <li>Alors la modification ou suppression est prise en compte</li>
             </ul>
@@ -296,13 +296,13 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux consulter l’historique complet d’un ticket, afin de comprendre toutes les actions menées dessus.</p>
+            <p>En tant qu"utilisateur, je veux consulter l"historique complet d"un ticket, afin de comprendre toutes les actions menées dessus.</p>
         </td>
         <td>
             <ul>
-                <li>Étant donné un ticket auquel j’ai accès</li>
-                <li>Lorsque je l’ouvre</li>
-                <li>Alors son historique complet est affiché dans l’ordre chronologique</li>
+                <li>Étant donné un ticket auquel j"ai accès</li>
+                <li>Lorsque je l"ouvre</li>
+                <li>Alors son historique complet est affiché dans l"ordre chronologique</li>
             </ul>
         </td>
         <td>
@@ -314,13 +314,13 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Visiteur</p>
         </td>
         <td>
-            <p>En tant que visiteur, je veux créer un compte, afin d’utiliser l’application.</p>
+            <p>En tant que visiteur, je veux créer un compte, afin d"utiliser l"application.</p>
         </td>
         <td>
             <ul>
-                <li>Étant donné un formulaire d’inscription valide</li>
+                <li>Étant donné un formulaire d"inscription valide</li>
                 <li>Lorsque je le soumets</li>
-                <li>Alors mon compte est créé et un jeton d’accès est généré</li>
+                <li>Alors mon compte est créé et un jeton d"accès est généré</li>
             </ul>
         </td>
         <td>
@@ -332,13 +332,13 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Visiteur</p>
         </td>
         <td>
-            <p>En tant que visiteur, je veux me connecter, afin d’accéder à mes tickets.</p>
+            <p>En tant que visiteur, je veux me connecter, afin d"accéder à mes tickets.</p>
         </td>
         <td>
             <ul>
                 <li>Étant donné un compte existant</li>
                 <li>Lorsque je fournis mes identifiants corrects</li>
-                <li>Alors une session sécurisée est ouverte et j’obtiens un jeton d’accès</li>
+                <li>Alors une session sécurisée est ouverte et j"obtiens un jeton d"accès</li>
             </ul>
         </td>
         <td>
@@ -350,7 +350,7 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux modifier mes informations personnelles, afin de mettre mon profil à jour.</p>
+            <p>En tant qu"utilisateur, je veux modifier mes informations personnelles, afin de mettre mon profil à jour.</p>
         </td>
         <td>
             <ul>
@@ -368,12 +368,12 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Administrateur</p>
         </td>
         <td>
-            <p>En tant qu’administrateur, je veux consulter tous les tickets, afin de superviser l’activité du système.</p>
+            <p>En tant qu"administrateur, je veux consulter tous les tickets, afin de superviser l"activité du système.</p>
         </td>
         <td>
             <ul>
                 <li>Étant donné que je suis administrateur</li>
-                <li>Lorsque j’accède à la vue dédiée</li>
+                <li>Lorsque j"accède à la vue dédiée</li>
                 <li>Alors tous les tickets, tous utilisateurs confondus, apparaissent</li>
             </ul>
         </td>
@@ -386,12 +386,12 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux visualiser un tableau de bord, afin d’obtenir une vue synthétique de ma charge de travail.</p>
+            <p>En tant qu"utilisateur, je veux visualiser un tableau de bord, afin d"obtenir une vue synthétique de ma charge de travail.</p>
         </td>
         <td>
             <ul>
-                <li>Étant donné l’existence de plusieurs tickets</li>
-                <li>Lorsque j’ouvre le tableau de bord</li>
+                <li>Étant donné l"existence de plusieurs tickets</li>
+                <li>Lorsque j"ouvre le tableau de bord</li>
                 <li>Alors je vois : total, tickets ouverts, en retard, assignés, etc.</li>
             </ul>
         </td>
@@ -404,13 +404,13 @@ Le tout pour démontrer : Backend .NET + Blazor + sécurité + tests + bonnes pr
             <p>Utilisateur</p>
         </td>
         <td>
-            <p>En tant qu’utilisateur, je veux recevoir une notification lorsqu’un ticket me concernant évolue, afin d’être informé rapidement.</p>
+            <p>En tant qu"utilisateur, je veux recevoir une notification lorsqu"un ticket me concernant évolue, afin d"être informé rapidement.</p>
         </td>
         <td>
             <ul>
                 <li>Étant donné un ticket où je suis concerné</li>
                 <li>Lorsque le ticket est modifié</li>
-                <li>Alors une notification locale s’affiche</li>
+                <li>Alors une notification locale s"affiche</li>
             </ul>
         </td>
         <td>
@@ -463,11 +463,11 @@ Demande ou problème créé par un utilisateur. Élément central du système.
 
 ### — Commentaire
 **Rôle métier**  
-Support de communication autour d’un ticket.
+Support de communication autour d"un ticket.
 
 **Attributs métier**  
 - Contenu  
-- Date d’écriture  
+- Date d"écriture  
 - Auteur
 
 **Relations**  
@@ -481,7 +481,7 @@ Support de communication autour d’un ticket.
 Trace des actions importantes sur les tickets.
 
 **Attributs métier**  
-- Action (*Création*, *Modification*, *Changement d’état*, *etc*)
+- Action (*Création*, *Modification*, *Changement d"état*, *etc*)
 - Auteur
 
 **Relations**  
@@ -498,7 +498,7 @@ Trace des actions importantes sur les tickets.
 
 **Administrateur**  
 - Voir tous les tickets  
-- Modifier ou supprimer n’importe quel ticket  
+- Modifier ou supprimer n"importe quel ticket  
 - Gérer les utilisateurs
 
 ---
@@ -511,7 +511,7 @@ Trace des actions importantes sur les tickets.
 
 #### `Inscription`
 <a href="./Graph/fr/UserFlow/user_register.svg">
-  <img src="./Graph/fr/UserFlow/user_login.svg" height="600px" alt="Flow user_register.svg" />
+  <img src="./Graph/fr/UserFlow/user_register.svg" height="600px" alt="Flow user_register.svg" />
 </a>
 
 #### `Mot de passe oublié`
@@ -604,16 +604,16 @@ Trace des actions importantes sur les tickets.
 
 ### — Journalisation
 #### `Journal Utilisateur`
-<a href="./Graph/fr/UserFlow/log_action_user.svg">
-  <img src="./Graph/fr/UserFlow/log_action_user.svg" height="600px" alt="Flow log_action_user.svg" />
+<a href="./Graph/fr/UserFlow/LOG_ACTIONS_user.svg">
+  <img src="./Graph/fr/UserFlow/LOG_ACTIONS_user.svg" height="600px" alt="Flow LOG_ACTIONS_user.svg" />
 </a>
 
 #### `Journal Administrateur`
-<a href="./Graph/fr/UserFlow/log_action_admin.svg">
-  <img src="./Graph/fr/UserFlow/log_action_admin.svg" height="600px" alt="Flow log_action_admin.svg" />
+<a href="./Graph/fr/UserFlow/LOG_ACTIONS_admin.svg">
+  <img src="./Graph/fr/UserFlow/LOG_ACTIONS_admin.svg" height="600px" alt="Flow LOG_ACTIONS_admin.svg" />
 </a>
 
 #### `Journal Contenu`
-<a href="./Graph/fr/UserFlow/log_action_content.svg">
-  <img src="./Graph/fr/UserFlow/log_action_content.svg" height="600px" alt="Flow log_action_content.svg" />
+<a href="./Graph/fr/UserFlow/LOG_ACTIONS_content.svg">
+  <img src="./Graph/fr/UserFlow/LOG_ACTIONS_content.svg" height="600px" alt="Flow LOG_ACTIONS_content.svg" />
 </a>

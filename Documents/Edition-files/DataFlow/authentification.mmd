@@ -5,10 +5,22 @@ config:
   layout: flowchart
 ---
 flowchart LR
-    USER["{{USER}}"] --> CREDS["{{CREDENTIALS_INPUT}}"]
-    CREDS --> BLAZOR["{{BLAZOR_CLIENT}}"]
-    BLAZOR -->|"POST /auth/login"| API["{{API_AUTH}}"]
-    API --> IDSYS["{{IDENTITY_SYSTEM}}"]
-    IDSYS -->|"{{CREDS_OK}}"| JWT["{{JWT_TOKEN}}"]
-    JWT --> STORE["{{STORE_LOCAL}}"]
-    STORE --> STATE["{{STATE_MANAGER}}"]
+
+%% Nodes definition
+    USER["{{USER}}"]
+    CREDS["{{CREDENTIALS_INPUT}}"]
+    BLAZOR["{{BLAZOR_CLIENT}}"]
+    API["{{API_AUTH}}"]
+    IDSYS["{{IDENTITY_SYSTEM}}"]
+    JWT["{{JWT_TOKEN}}"]
+    STORE["{{STORE_LOCAL}}"]
+    STATE["{{STATE_MANAGER}}"]
+
+%% Flow definition
+    USER --> CREDS
+    CREDS --> BLAZOR
+    BLAZOR -->|"POST /auth/login"| API
+    API --> IDSYS
+    IDSYS -->|"{{CREDS_OK}}"| JWT
+    JWT --> STORE
+    STORE --> STATE

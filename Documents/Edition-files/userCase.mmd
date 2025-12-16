@@ -33,8 +33,8 @@ CreateComment("{{CREATE_COMMENT}}")
 EditComment("{{EDIT_COMMENT}}")
 DeleteComment("{{DELETE_COMMENT}}")
 end
-subgraph ADM["{{ADMINISTRATOR}}"]
-Admin(["{{ADMINISTRATOR}}"])
+subgraph ADM["{{ADMIN}}"]
+Admin(["{{ADMIN}}"])
 MngUsers("{{MANAGE_USERS}}")
 Moderation("{{MODERATION}}")
 DeleteUser("{{DELETE_USER}}")
@@ -51,7 +51,7 @@ Comments --- CreateComment & EditComment & DeleteComment
 Admin --> MngUsers & Moderation
 MngUsers --- DeleteUser & ChangeRole
 Moderation --- DeleteTicketMod & DeleteCommentMod
-Register -.-> Journal("{{LOG_ACTIONS}}")
+Register -.-> Journal("{{LOG_ACTIONSS}}")
 ForgotPW -.-> Journal
 Logout -.-> Journal
 DelAccount -.-> Journal

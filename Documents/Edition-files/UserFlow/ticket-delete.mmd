@@ -5,9 +5,18 @@ config:
   layout: dagre
 ---
 flowchart TD
-A["{{USER_ADMIN}}"] --> B["{{OPEN_TICKET}}"]
-B --> C["{{CLICK_DELETE}}"]
-C -->|"{{NOT_AUTHORIZED}}"| D["{{ACCESS_ERROR_403}}"]
-C -->|"{{AUTHORIZED}}"| E["{{API_DELETE_TICKET}}"]
-E --> F["{{DELETE_COMMENTS_HISTORY}}"]
-F --> G["{{CONFIRM_DELETION}}"]
+
+%% Nodes definition
+A["{{USER_OR_ADMIN}}"] 
+B["{{OPEN_TICKET}}"]
+C["{{CLICK_DELETE}}"]
+Dn["{{DISPLAY_ERROR}} {{NOT_AUTHORIZED}}"]
+Dy["{{TICKET_DELETED}}"]
+E["{{DISPLAY_SUCCESS_MESSAGE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C -->|"{{NOT_AUTHORIZED}}"| Dn
+C -->|"{{AUTHORIZED}}"| Dy
+Dy --> E

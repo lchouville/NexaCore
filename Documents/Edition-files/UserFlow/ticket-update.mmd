@@ -5,15 +5,26 @@ config:
     layout: dagre
 ---
 flowchart TB
-A["{{USER}}"] --> B["{{OPEN_TICKET}}"]
-B --> C["{{MODIFY_DESC_STATUS_PRIORITY}}"]
-C --> D["{{VALIDATE}}"]
-D -- "{{NOT_AUTHORIZED}}" --> E@{ label: "{{ERROR_NO_ACCESS}}" }
-E --> B
-D -- "{{INVALID_FIELDS}}" --> F["{{DISPLAY_ERRORS}}"]
-F --> C
-D -- "{{VALID}}" --> G["{{API_UPDATE_TICKET}}"]
-G --> H@{ label: "{{API_ADD_HISTORY_ENTRY}}" }
-H --> I["{{DISPLAY_UPDATED_TICKET}}"]
-E@{ shape: rect}
-H@{ shape: rect}
+
+%% Nodes definition
+A["{{USER}}"] 
+B["{{OPEN_TICKET}}"]
+C["{{CLICK_EDIT}}"]
+D["{{FILL_FIELDS}}"]
+E["{{VALIDATE}}"]
+Fn["{{DISPLAY_ERROR}} {{NOT_AUTHORIZED}}"]
+Fn2["{{DISPLAY_ERROR}} {{INVALID_FIELDS}}"]
+Fy["{{TICKET_UPDATED}}"]
+G["{{DISPLAY_SUCCESS_MESSAGE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D --> E
+E -->|"{{NOT_AUTHORIZED}}"| Fn
+Fn --> A
+E -->|"{{INVALID_FIELDS}}"| Fn2
+Fn2 --> D
+E -->|"{{OK}}"| Fy
+Fy --> G

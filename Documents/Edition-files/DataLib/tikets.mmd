@@ -1,0 +1,12 @@
+flowchart TB
+
+    subgraph TICKETS["{{TICKETS_TABLE}}"]
+        direction LR
+
+        C1["**{{FIELD_TITLE}}**<br/>{{TYPE_TEXT}} (200)"]
+        C2["**{{FIELD_DESC}}**<br/>{{TYPE_TEXT}} (1000)"]
+        C3["**{{FIELD_STATUS}}**<br/>{{TYPE_TEXT}} (50)"]
+        C4["**{{FIELD_PRIORITY}}**<br/>{{TYPE_TEXT}} (50)"]
+        C5["**{{FIELD_CREATED_ON}}**<br/>{{TYPE_DATE}}"]
+        C6["**{{FIELD_UPDATED_ON}}**<br/>{{TYPE_DATE}}"]
+    end

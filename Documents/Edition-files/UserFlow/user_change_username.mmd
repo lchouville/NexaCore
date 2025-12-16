@@ -5,15 +5,26 @@ config:
     layout: dagre
 ---
 flowchart TD
-A["{{USER_OPEN_ACCOUNT_SETTINGS}}"] --> B["{{USER_CLICK_CHANGE_USERNAME}}"]
-B --> C["{{DISPLAY_FORM_CURRENT_USERNAME}}"]
-C --> D["{{USER_ENTER_NEW_USERNAME}}"]
-D --> E["{{USER_CLICK_SAVE}}"]
-E --> F["{{FRONTEND_VALIDATE_USERNAME}}"]
-F -->|"{{VALIDATED}}"| G["{{SEND_USERNAME_UPDATE_REQUEST}}"]
-F -->|"{{ERROR}}"| F1["{{DISPLAY_ERROR}}"]
-G --> H["{{BACKEND_VERIFY_USERNAME}}"]
-H -->|"{{OK}}"| I["{{UPDATE_USERNAME_DB}}"]
-H -->|"{{ERROR}}"| H1["{{ERROR_CONFLICT_FORMAT_AUTH}}"]
-I --> J["{{RETURN_SUCCESS_TO_FRONTEND}}"]
-J --> K["{{UPDATE_UI_SUCCESS_MESSAGE}}"]
+
+%% Nodes definition
+A["{{USER}}"]
+B["{{OPEN_ACCOUNT_SETTINGS}}"]
+C["{{USER_CLICK_CHANGE_USERNAME}}"]
+D["{{USER_FILL_FIELDS}}"]
+E["{{USER_CLICK_SAVE}}"]
+Fy["{{USERNAME_UPDATED}}"]
+Fn["{{DISPLAY_ERROR}} {{INVALID_FIELDS}}"]
+Gn["{{DISPLAY_ERROR}} {{USERNAME_ALREADY_USED}}"]
+Gy["{{DISPLAY_SUCCESS_MESSAGE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D --> E
+E -->|"{{INVALID_FIELDS}}"| Fn
+Fn --> D
+E -->|"{{USERNAME_ALREADY_USED}}"| Gn
+Gn --> D
+E -->|"{{OK}}"| Fy
+Fy --> Gy

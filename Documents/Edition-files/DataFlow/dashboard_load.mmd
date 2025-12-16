@@ -5,11 +5,25 @@ config:
   layout: flowchart
 ---
 flowchart LR
-    U["{{USER}}"] -->|"{{ACCESS_DASHBOARD}}"| BLAZOR["{{BLAZOR_CLIENT}}"]
-    BLAZOR -->|"GET /tickets (JWT)"| API["{{API_TICKET}}"]
-    API --> MEDIATOR["{{MEDIATOR_QUERY}}"]
-    MEDIATOR --> SERVICE["{{TICKET_SERVICE}}"]
-    SERVICE --> REPO["{{TICKET_REPO}}"]
-    REPO --> DB["({{SQL_DB}})"]
-    API -->|"{{TICKETS_RETURNED}}"| BLAZOR
-    BLAZOR --> STATE["{{STATE_MANAGER}}"]
+
+%% Nodes definition
+    USER["{{USER}}"]
+    BLAZOR["{{BLAZOR_CLIENT}}"]
+    API["{{API_TICKET}}"]
+    MEDIATOR["{{MEDIATOR_QUERY}}"]
+    SERVICE["{{SERVICE_TICKET}}"]
+    REPO["{{REPO_TICKET}}"]
+    DB["({{SQL_DB}})"]
+    BLAZOR
+    STATE["{{STATE_MANAGER}}"]
+
+%% Flow definition
+    USER --> |"{{OPEN_DASHBOARD}}"| BLAZOR
+    BLAZOR --> |"GET /tickets (JWT)"| API
+    API --> MEDIATOR
+    MEDIATOR --> SERVICE
+    SERVICE --> REPO
+    REPO --> DB
+    DB --> API
+    API --> |"{{TICKETS_RETURNED}}"| BLAZOR
+    BLAZOR --> STATE

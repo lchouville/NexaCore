@@ -5,9 +5,19 @@ config:
     layout: dagre
 ---
 graph TD
-A["{{LAYER_PRESENTATION}}: Blazor"] --> B["{{LAYER_APPLICATION}}: .NET"]
-B --> C["{{LAYER_DOMAIN}}: DDD"]
-C --> D["{{LAYER_INFRASTRUCTURE}}: EF Core + SQL"]
-D --> E["({{DATABASE}})"]
-B --> F["{{SECURITY}}: JWT/Identity"]
+
+%% Nodes definition
+A["{{LAYER_PRESENTATION}}: Blazor"] 
+B["{{LAYER_APPLICATION}}: .NET"]
+C["{{LAYER_DOMAIN}}: DDD"]
+D["{{LAYER_INFRASTRUCTURE}}: EF Core + SQL"]
+E["({{DATABASE}})"]
+F["{{SECURITY}}: JWT/Identity"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D --> E
+B --> F
 F --> B

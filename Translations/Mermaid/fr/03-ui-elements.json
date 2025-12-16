@@ -1,0 +1,31 @@
+{
+  "FORM_CHOOSE_REASON": "Formulaire : choisir/écrire la raison",
+  "DISPLAY_USER_LIST": "Afficher la list des utilisateurs",
+  "DISPLAY_USER_INFO": "Afficher les details du profil utilisateur",
+  "DISPLAY_ERROR": "Afficher une erreur",
+  "DISPLAY_NO_ACCOUNT_FOUND": "Afficher : Aucun compte associé",
+  "DISPLAY_CONFIRMATION_EMAIL_SENT": "Afficher : E-mail de confirmation envoyé",
+  "DISPLAY_SUCCESS_MESSAGE": "Afficher message de succès",
+  "AUTH_FILTERS": "Filtres d'authentification",
+  "INPUT_VALIDATION": "Validation des entrées",
+  "REDIRECT_LOGIN_PAGE": "Rediriger vers la page de connexion",
+  "SEND_NOTIFICATION_USER": "Envoyer une notification à l'utilisateur",
+  "CREDS_OK": "Identifiants valides",
+  "OPTIONAL_INTERNAL_AUDIT_NOTIF": "Notification interne optionnelle",
+  "INVALID_CREDENTIALS": "Identifiants incorrects",
+  "REDIRECT_DASHBOARD": "Redirection tableau de bord",
+  "FORGOT_PASSWORD": "Réinitialiser le\nmot de passe",
+  "PAGE_FORGOT_PASSWORD": "Page : Mot de passe oublié",
+  "PAGE_ENTER_NEW_PASSWORD": "Page : Saisir un nouveau mot de passe",
+
+  "CREDENTIALS_INPUT": "Email + Mot de passe",
+  "FORM_TICKET": "Formulaire Ticket",
+  "COMMENT_INPUT": "Commentaire",
+
+  "CONFIRM_ROLE_CHANGE": "Confirmation : 'Confirmer le changement de rôle ?'",
+  "OPEN_NEW_TICKET_PAGE": "Ouvre la page de création d'un nouveau ticket",
+  "OPEN_TICKET": "Ouvre un ticket",
+  "OPEN_TICKET_LIST": "Ouvre la liste des tickets",
+  "ENTER_COMMENT": "Saisir un commentaire",
+  "UPDATE_COMMENT_LIST": "Mettre à jour la liste des commentaires"
+}

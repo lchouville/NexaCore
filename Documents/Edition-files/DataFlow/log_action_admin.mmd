@@ -1,0 +1,20 @@
+---
+config:
+    theme: dark
+    look: classic
+    layout: dagre
+---
+flowchart TD
+
+%% Nodes definition
+A["{{ADMIN_PERFORM_CRITICAL_ACTION}}"] 
+B["{{SYSTEM_MARK_AS_SENSITIVE}}"]
+C["{{CREATE_LOG_ENTRY_METADATA}}"]
+D["{{SAVE_GLOBAL_HISTORY}}"]
+E["{{OPTIONAL_INTERNAL_AUDIT_NOTIF}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D --> E

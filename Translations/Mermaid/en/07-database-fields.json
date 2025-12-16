@@ -1,0 +1,14 @@
+{
+  "FIELD_NAME": "Name",
+  "FIELD_EMAIL": "Email",
+  "FIELD_PASSWORD_HASH": "Password hash",
+  "FIELD_STATUS": "Status",
+  "FIELD_CREATED_ON": "Created on",
+  "FIELD_UPDATED_ON": "Updated on",
+  "FIELD_TITLE": "Title",
+  "FIELD_DESC": "Description",
+  "FIELD_PRIORITY": "Priority",
+  "FIELD_CONTENT": "Content",
+  "FIELD_TICKET": "Ticket",
+  "FIELD_USER": "User"
+}

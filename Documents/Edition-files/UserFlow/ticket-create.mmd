@@ -5,11 +5,21 @@ config:
     layout: dagre
 ---
 flowchart TB
-A["{{USER}}"] --> B["{{OPEN_NEW_TICKET_PAGE}}"]
-B --> C["{{ENTER_TITLE_DESC_PRIORITY}}"]
-C --> D["{{VALIDATE}}"]
-D -- "{{INVALID_FIELDS}}" --> E["{{DISPLAY_ERRORS}}"]
-E --> C
-D -- "{{VALID}}" --> F["{{API_CREATE_TICKET}}"]
-F --> G["{{SAVE_HISTORY_CREATION}}"]
-G --> H["{{DISPLAY_CREATED_TICKET}}"]
+
+%% Nodes definition
+A["{{USER}}"]
+B["{{OPEN_NEW_TICKET_PAGE}}"]
+C["{{FILL_FIELDS}}"]
+D["{{VALIDATE}}"]
+En["{{DISPLAY_ERROR}} {{INVALID_FIELDS}}"]
+Ey["{{TICKET_CREATED}}"]
+F["{{DISPLAY_SUCCESS_MESSAGE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D -->|"{{INVALID_FIELDS}}"| En
+En --> C
+D -->|"{{OK}}"| Ey
+Ey --> F

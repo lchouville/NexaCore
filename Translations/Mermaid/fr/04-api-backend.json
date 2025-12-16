@@ -1,0 +1,19 @@
+{
+  "API_AUTH": "API authentification",
+  "API_COMMENT": "API commentaire",
+  "API_TICKET": "API ticket",
+  "AUTHENTICATION": "Authentification",
+  "AUTHORIZATION": "Autorisation",
+  "SEND_UPDATE_REQUEST": "Envoi requête mise à jour",
+  "NOT_AUTHORIZED": "Pas autorisé",
+  "AUTHORIZED": "Autorisé",
+  "ACCESS_ERROR": "Erreur d'accès (403)",
+  "SYSTEM_MARK_AS_SENSITIVE": "Système marqué comme sensible",
+  "SEND_RESET_PASSWORD_EMAIL": "Envoi d'un e-mail<br/>avec lien de réinitialisation",
+  "DISPLAY_USER_TICKETS": "Afficher : tickets créés + tickets assignés + tickets publics",
+  "DISPLAY_ALL_TICKETS": "Afficher tous les tickets",
+  "TICKETS_RETURNED": "Liste des tickets renvoyée",
+  "ACCOUNT_DELETED": "Compte supprimé",
+  "COMMENT_ADDED": "Commentaire ajouté",
+  "TICKET_CREATED": "Ticket créé"
+}

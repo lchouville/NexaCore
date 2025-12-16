@@ -1,0 +1,19 @@
+{
+  "API_AUTH": "API authentication",
+  "API_COMMENT": "API comment",
+  "API_TICKET": "API ticket",
+  "AUTHENTICATION": "Authentication",
+  "AUTHORIZATION": "Authorization",
+  "SEND_UPDATE_REQUEST": "Send update request",
+  "NOT_AUTHORIZED": "Not authorized",
+  "AUTHORIZED": "Authorized",
+  "ACCESS_ERROR": "Access error (403)",
+  "SYSTEM_MARK_AS_SENSITIVE": "System marked as sensitive",
+  "SEND_RESET_PASSWORD_EMAIL": "Send email<br/>with reset link",
+  "DISPLAY_USER_TICKETS": "Display: created tickets + assigned tickets + public tickets",
+  "DISPLAY_ALL_TICKETS": "Display all tickets",
+  "TICKETS_RETURNED": "List of returned tickets",
+  "ACCOUNT_DELETED": "Account deleted",
+  "COMMENT_ADDED": "Comment added",
+  "TICKET_CREATED": "Ticket created"
+}

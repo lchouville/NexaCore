@@ -1,0 +1,22 @@
+---
+config:
+    theme: dark
+    look: classic
+    layout: dagre
+---
+flowchart TD
+
+%% Nodes definition
+A["{{USER_PERFORMS_ACTION}}"] 
+B["{{SYSTEM_CHECK_LOG_REQUIRED}}"]
+Cn["{{NO_LOGGING}}"]
+Cy["{{BUILD_LOG_ENTRY}}"]
+D["{{SAVE_GLOBAL_LOG}}"]
+E["{{RETURN_SUCCESS}}"]
+
+%% Flow definition
+A --> B
+B -->|"{{NO}}"| Cn
+B -->|"{{YES}}"| Cy
+Cy --> D
+D --> E

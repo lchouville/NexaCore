@@ -1,0 +1,6 @@
+{
+  "TYPE_TEXT": "texte",
+  "TYPE_INT": "entier",
+  "TYPE_INTEGER": "entier",
+  "TYPE_DATE": "date"
+}

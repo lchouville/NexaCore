@@ -5,18 +5,28 @@ config:
     layout: dagre
 ---
 flowchart TD
-A["{{USER_OPEN_POST_OR_PROFILE}}"] --> B["{{USER_CLICK_EDIT_COMMENT}}"]
-B --> C["{{LOAD_EXISTING_COMMENT}}"]
-C --> D["{{USER_MODIFY_COMMENT_TEXT}}"]
-D --> E["{{USER_CLICK_UPDATE}}"]
-E --> F["{{FRONTEND_VALIDATE_FIELDS}}"]
-F -->|"{{VALIDATED}}"| G["{{SEND_UPDATE_REQUEST}}"]
-F -->|"{{ERROR}}"| F1["{{DISPLAY_ERROR_INVALID_TEXT}}"]
-G --> H["{{BACKEND_VERIFY}}:  
-- {{AUTHENTICATION}}  
-- {{COMMENT_OWNERSHIP}}  
-- {{VALID_FIELDS}}"]
-H -->|OK| I["{{UPDATE_COMMENT_DB}}"]
-H -->|"{{ERROR}}"| H1["{{RETURN_ERROR}}: 401, 403 ou 400"]
-I --> J["{{RETURN_SUCCESS_FRONTEND}}"]
-J --> K["{{DISPLAY_UPDATED_COMMENT}}"]
+
+%% Nodes definition
+A["{{USER}}"]
+B["{{USER_SELECT_POST}}"]
+C["{{USER_CLICK_EDIT_COMMENT}}"]
+D["{{USER_MODIFY_COMMENT_TEXT}}"]
+E["{{USER_CLICK_UPDATE}}"]
+Fy["{{SEND_UPDATE_REQUEST}}"]
+Fn["{{DISPLAY_ERROR}}  {{INVALID_FIELDS}}"]
+Gn["{{DISPLAY_ERROR}}"]
+Gy["{{UPDATE_COMMENT}}"]
+J["{{DISPLAY_SUCCESS_MESSAGE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D --> E
+E --> Fy
+Fy -->|success| Gy
+Gy --> J
+Fy -->|error: invalid fields| Fn
+Fy -->|error: other| Gn
+Gn --> B
+Fn --> D

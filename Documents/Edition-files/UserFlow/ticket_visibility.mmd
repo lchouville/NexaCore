@@ -5,7 +5,14 @@ config:
     layout: dagre
 ---
 flowchart TD
-A["{{USER}}"] --> B["{{OPEN_TICKET_LIST}}"]
-B --> C["{{API_FETCH_VISIBLE_TICKETS}}"]
-C -->|"{{STANDARD_USER}}"| D["{{DISPLAY_USER_TICKETS}}"]
-C -->|"{{ADMIN}}"| E["{{DISPLAY_ALL_TICKETS}}"]
+
+%% Nodes definition
+A["{{USER_OR_ADMIN}}"] 
+B["{{OPEN_TICKET_LIST}}"]
+C1["{{DISPLAY_USER_TICKETS}}"]
+C2["{{DISPLAY_ALL_TICKETS}}"]
+
+%% Flow definition
+A --> B
+B -->|"{{STANDARD_USER}}"| C1
+B -->|"{{ADMIN}}"| C2

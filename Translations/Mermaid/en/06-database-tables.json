@@ -1,0 +1,6 @@
+{
+  "USERS_TABLE": "Users",
+  "ROLES_TABLE": "Roles",
+  "TICKETS_TABLE": "Tickets",
+  "COMMENTS_TABLE": "Comments"
+}

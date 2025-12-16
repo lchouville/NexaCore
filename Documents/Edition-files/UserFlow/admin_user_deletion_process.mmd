@@ -5,10 +5,28 @@ config:
     layout: dagre
 ---
 flowchart TD
-A["{{ADMINISTRATOR}}"] --> B["{{ACCESS_USER_PROFILE}}"]
-B --> C["{{CLICK_DELETE_USER}}"]
-C --> D["{{FORM_ENTER_REASON_DELETE}}"]
-D --> E["{{VALIDATE_ACTION}}"]
-E --> F["{{IMMEDIATE_USER_DELETION}}"]
-F --> G["{{LOG_ACTION}}"]
-G --> H["{{AUTO_SEND_EMAIL_USER}}<br/>• {{ACCOUNT_DELETED}}<br/>• {{REASON_PROVIDED_ADMIN}}"]
+
+%% Nodes definition 
+A["{{ADMIN}}"]
+B["{{ADMIN_OPEN_USER_PROFILE}}"]
+C["{{CLICK_DELETE_USER}}"]
+D["{{FORM_CHOOSE_REASON}}"]
+E["{{CONFIRM_DELETE}}"]
+F["{{IMMEDIATE_USER_DELETION}}"]
+Gn["{{DISPLAY_ERROR}}"]
+Gy["
+    {{SEND_EMAIL_USER}}
+    • {{ACCOUNT_DELETED}}
+    • {{REASON_PROVIDED_ADMIN}}
+"]
+H["{{DISPLAY_SUCCESS_MESSAGE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> |"{{ERROR}}"| Gn
+F --> |"{{OK}}"| Gy
+Gy --> H

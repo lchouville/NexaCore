@@ -5,12 +5,25 @@ config:
   layout: flowchart
 ---
 flowchart LR
-    USER["{{USER}}"] --> COMMENT["{{COMMENT_INPUT}}"]
-    COMMENT --> BLAZOR["{{BLAZOR_CLIENT}}"]
-    BLAZOR -->|"POST /comments (JWT)"| API_COMMENT["{{API_COMMENT}}"]
-    API_COMMENT --> MEDIATOR["{{MEDIATOR_COMMAND}}"]
-    MEDIATOR --> COMMENT_SVC["{{COMMENT_SERVICE}}"]
-    COMMENT_SVC --> COMMENT_REPO["{{COMMENT_REPO}}"]
-    COMMENT_REPO --> DB["({{SQL_DB}})"]
-    DB --> ADDED["{{COMMENT_ADDED}}"]
+
+%% Nodes definition
+    USER["{{USER}}"] 
+    COMMENT["{{COMMENT_INPUT}}"]
+    BLAZOR["{{BLAZOR_CLIENT}}"]
+    API_COMMENT["{{API_COMMENT}}"]
+    MEDIATOR["{{MEDIATOR_COMMAND}}"]
+    COMMENT_SVC["{{SERVICE_COMMENT}}"]
+    REPO_COMMENT["{{REPO_COMMENT}}"]
+    DB["({{SQL_DB}})"]
+    ADDED["{{COMMENT_ADDED}}"]
+
+%% Flow definition
+    USER --> COMMENT
+    COMMENT --> BLAZOR
+    BLAZOR -->|"POST /comments (JWT)"| API_COMMENT
+    API_COMMENT --> MEDIATOR
+    MEDIATOR --> COMMENT_SVC
+    COMMENT_SVC --> REPO_COMMENT
+    REPO_COMMENT --> DB
+    DB --> ADDED
     ADDED --> BLAZOR

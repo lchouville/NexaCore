@@ -33,6 +33,10 @@ EOF
 #         TRAITEMENT DES OPTIONS
 ##############################################
 case "$1" in
+    -r|--run)
+        # Launch the .NET application
+        dotnet run
+        ;;
     -m|--mmdToSVG)
         shift  # Enlever le premier argument (-m)
         

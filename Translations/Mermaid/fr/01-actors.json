@@ -1,0 +1,19 @@
+{
+  "VISITOR": "Visiteur",
+  "USER": "Utilisateur",
+  "ADMIN": "Administrateur",
+  "STANDARD_USER": "Utilisateur standard",
+  "USER_OR_ADMIN": "Utilisateur ou Admin",
+  "CLIENT_CONNECTED": "Client connecté",
+  "USER_ENTER_EMAIL": "Utilisateur saisit son e-mail",
+  "ADMIN_PERFORM_CRITICAL_ACTION": "Admin effectue une action critique",
+  "ADMIN_OPEN_USER_PROFILE": "Admin ouvre la fiche d'un utilisateur",
+  "ADMIN_CLICK_CHANGE_ROLE": "Admin clique sur modifier le rôle",
+  "ADMIN_SELECT_NEW_ROLE": "Admin sélectionne un nouveau rôle",
+  "ADMIN_OPEN_ADMIN_INTERFACE": "Admin ouvre l'interface d'administration",
+  "USER_CLICK_CHANGE_PASSWORD": "Utilisateur clique sur modifier le mot de passe",
+  "USER_CLICK_CHANGE_USERNAME": "Utilisateur clique sur modifier le nom d'utilisateur",
+  "USER_CLICK_EDIT_COMMENT": "Utilisateur clique sur modifier le commentaire",
+  "USER_MODIFY_COMMENT_TEXT": "Utilisateur modifie le texte du commentaire",
+  "REASON_PROVIDED_ADMIN": "Raison fournie par l'administrateur"
+}

@@ -1,0 +1,12 @@
+flowchart TB
+
+    subgraph USERS["{{USERS_TABLE}}"]
+        direction LR
+
+        C1["**{{FIELD_NAME}}**<br/>{{TYPE_TEXT}} (100)"]
+        C2["**{{FIELD_EMAIL}}**<br/>{{TYPE_TEXT}} (150)"]
+        C3["**{{FIELD_PASSWORD_HASH}}**<br/>{{TYPE_TEXT}} (200)"]
+        C7["**{{FIELD_STATUS}}**<br/>{{TYPE_INT}}"]
+        C8["**{{FIELD_CREATED_ON}}**<br/>{{TYPE_DATE}}"]
+        C9["**{{FIELD_UPDATED_ON}}**<br/>{{TYPE_DATE}}"]
+    end

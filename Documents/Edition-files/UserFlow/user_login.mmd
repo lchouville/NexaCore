@@ -5,14 +5,24 @@ config:
     layout: dagre
 ---
 flowchart TD
-A["{{USER}}"] --> B["{{OPEN_LOGIN_PAGE}}"]
-B --> C["{{ENTER_EMAIL_PASSWORD}}"]
-C --> D["{{VALIDATE_FORM}}"]
-D -->|"{{INVALID_FIELDS}}"| E["{{DISPLAY_ERRORS}}"]
+
+%% Nodes definition
+A["{{VISITOR}}"]
+B["{{OPEN_LOGIN_PAGE}}"]
+C["{{FILL_FIELDS}}"]
+D["{{USER_CLICK_LOGIN}}"]
+E["{{DISPLAY_ERROR}} {{INVALID_FIELDS}}"]
+G["{{DISPLAY_ERROR}} {{INVALID_CREDENTIALS}}"]
+I["{{LOGIN_SUCCESS}}"]
+J["{{REDIRECT_DASHBOARD}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D -->|"{{INVALID_FIELDS}}"| E
 E --> C
-D -->|"{{VALID_FIELDS}}"| F["{{API_VERIFY_USER}}"]
-F -->|"{{INVALID_CREDENTIALS}}"| G["{{ERROR_INVALID_CREDENTIALS}}"]
+D -->|"{{INVALID_CREDENTIALS}}"| G
 G --> C
-F -->|"{{OK}}"| H["{{API_GENERATE_JWT_TOKEN}}"]
-H --> I["{{LOGIN_SUCCESS}}"]
-I --> J["{{REDIRECT_DASHBOARD}}"]
+D -->|"{{OK}}"| I
+I --> J

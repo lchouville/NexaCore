@@ -14,6 +14,15 @@
   - [Cahier des Charges Fonctionnel](Documents/fonctional-specification-fr.md)
   - [Cahier des Charges Technique](Documents/technical-specification-fr.md)
 
+## Utilisation 
+Lancement du projet:
+```cmd
+  dotnet run
+```
+Acceder a l'application en local (http://localhost:5192)[http://localhost:5192]
+
+Verrification de l'etat de l'application (http://localhost:5192/swagger)[http://localhost:5192/swagger]
+
 ## 👤 Auteurs et collaborateurs
 <table style="border-collapse: collapse; border: none; width: 100%">
   <!-- Column 1 - Max 3 profils -->

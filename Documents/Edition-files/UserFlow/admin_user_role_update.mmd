@@ -5,11 +5,24 @@ config:
     layout: dagre
 ---
 flowchart TD
-A["{{ADMIN_OPEN_USER_PROFILE}}"] --> B["{{ADMIN_CLICK_CHANGE_ROLE}}"]
-B --> C["{{ADMIN_SELECT_NEW_ROLE}}"]
-C --> D["{{CONFIRM_ROLE_CHANGE}}"]
-D -->|"{{YES}}"| E["{{SYSTEM_UPDATE_ROLE}}"]
-E --> F["{{SYSTEM_LOG_HISTORY}}"]
-F --> G["{{SYSTEM_SEND_NOTIFICATION}}"]
-G --> H["{{ROLE_UPDATED}}"]
-D -->|"{{NO}}"| I["{{ACTION_CANCELLED}}"]
+
+%% Nodes definition
+A["{{ADMIN}}"]
+B["{{ADMIN_OPEN_USER_PROFILE}}"]
+C["{{ADMIN_CLICK_CHANGE_ROLE}}"]
+D["{{ADMIN_SELECT_NEW_ROLE}}"]
+E["{{CONFIRM_ROLE_CHANGE}}"]
+Fn["{{ACTION_CANCELLED}}"]
+Fy["{{UPDATE_ROLE}}"]
+G["{{DISPLAY_SUCCESS_MESSAGE}}"]
+H["{{SEND_NOTIFICATION_USER}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D --> E
+E -->|"{{NO}}"| Fn
+E -->|"{{YES}}"| Fy
+Fy --> G
+G --> H

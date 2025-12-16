@@ -5,16 +5,23 @@ config:
     layout: dagre
 ---
 flowchart TD
-A["{{ADMIN_OPEN_MODERATION}}"] --> B["{{ADMIN_SELECT_COMMENT}}"]
-B --> C["{{ADMIN_CLICK_DELETE}}"]
-C --> D["{{FORM_CHOOSE_REASON}}"]
-D --> E["{{ADMIN_CONFIRM}}"]
-E --> F["{{SEND_DELETE_REQUEST}}"]
-F --> G["{{BACKEND_VERIFY}}:  
-- {{AUTH_ADMIN}}  
-- {{OPTIONAL_FIELDS}}"]
-G -->|OK| H["{{DELETE_IN_DB}}"]
-G -->|"{{ERROR}}"| G1["{{RETURN_ERROR}}: 401, 403"]
-H --> I["{{SEND_EMAIL_USER}}"]
-I --> J["{{RETURN_SUCCESS_ADMIN}}"]
-J --> K["{{UPDATE_COMMENT_LIST}}"]
+
+%% Nodes definition
+A["{{USER}}"]
+B["{{USER_SELECT_POST}}"]
+C["{{USER_SELECT_COMMENT}}"]
+D["{{CLICK_DELETE}}"]
+Iy["{{DELETE_COMMENT}}"]
+In["{{DISPLAY_ERROR}}"]
+K["{{DISPLAY_SUCCESS_MESSAGE}}"]
+L["{{UPDATE_COMMENT_LIST}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C --> D
+D -->|"{{CANNOT_DELETE_COMMENT}}"| In
+In --> C
+D -->|"{{OK}}"| Iy
+Iy --> K
+K --> L

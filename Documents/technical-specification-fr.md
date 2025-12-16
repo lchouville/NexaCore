@@ -22,27 +22,27 @@
 **Application**
 
 Contient les services (User, Ticket, Comment, Notification, Log) et MediatR pour le pattern CQRS.
-Orchestre les cas d’usage et coordonne le domaine.
+Orchestre les cas d"usage et coordonne le domaine.
 
 **Domaine**
 
 Regroupe les entités métier, règles de gestion et interfaces de repository.
 Totalement indépendant de la technologie.
-C’est le cœur fonctionnel du projet.
+C"est le cœur fonctionnel du projet.
 
 **Infrastructure**
 
-Implémente les repositories, DbContext EF Core et l’accès SQL.
+Implémente les repositories, DbContext EF Core et l"accès SQL.
 Expose la persistance et les opérations techniques définies par le domaine.
 
 **Sécurité**
 
 ASP.NET Identity + JWT.
-Protège les API, valide l’accès et applique les règles d’authentification/autorisation.
+Protège les API, valide l"accès et applique les règles d"authentification/autorisation.
 
 **Persistance**
 
-Base SQL Server utilisée via l’infrastructure.
+Base SQL Server utilisée via l"infrastructure.
 
 ### Architecture Logiciel
 L'architecture logicielle de NexaCore est divisée en plusieurs couches : Présentation, Application, Domaine, Infrastructure, et Sécurité.

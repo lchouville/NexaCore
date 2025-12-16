@@ -5,12 +5,20 @@ config:
     layout: dagre
 ---
 flowchart TD
-A["{{USER_OR_ADMIN}}"] --> B["{{OPEN_TICKET}}"]
-B --> C["{{OPEN_ADD_ASSIGNEE_MENU}}"]
-C --> D["{{API_CHECK_PERMISSIONS}}"]
-D -->|"{{NOT_AUTHORIZED}}"| E["{{ACCESS_ERROR}}"]
-E --> B
-D -->|"{{OK}}"| F["{{SELECT_USER}}"]
-F --> G["{{API_ADD_ASSIGNED_USER}}"]
-G --> H["{{UPDATE_VISIBILITY}}"]
-H --> I["{{DISPLAY_UPDATED_TICKET}}"]
+
+%% Nodes definition
+A["{{USER_OR_ADMIN}}"] 
+B["{{OPEN_TICKET}}"]
+C["{{OPEN_ADD_ASSIGNEE_MENU}}"]
+Dn["{{ACCESS_ERROR}}"]
+Dy["{{SELECT_USER}}"]
+F["{{ADD_ASSIGNED_USER}}"]
+H["{{DISPLAY_SUCCESS_MESSAGE}}"]
+
+%% Flow definition
+A --> B
+B --> C
+C -->|"{{ERROR}}"| Dn
+C -->|"{{OK}}"| Dy
+Dy --> F
+F --> H
