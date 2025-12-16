@@ -9,6 +9,26 @@
 ## 🛠️ Installation
 ### Télécharger le dépôt
 
+### Installer les package :
+
+```cmd
+  # Swagger
+  dotnet add package Swashbuckle.AspNetCore --version 6.6.2
+```
+
+Base de données:
+```cmd
+  # Dans Ticketing.Api
+  dotnet add package Microsoft.EntityFrameworkCore --version 8.0.8
+  dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 8.0.8
+  dotnet add package Microsoft.EntityFrameworkCore.Tools --version 8.0.8
+
+  # Migration + DB
+  dotnet ef migrations add InitDb
+  dotnet ef database update
+```
+
+
 ## 📚 Documentation
 - **Cahier des charges**
   - [Cahier des Charges Fonctionnel](Documents/fonctional-specification-fr.md)
