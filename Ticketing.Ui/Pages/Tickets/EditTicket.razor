@@ -1,0 +1,79 @@
+@page "/tickets/{Id:int}/edit"
+@using Ticketing.Ui.Models
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<h3>Modifier le ticket #@Id</h3>
+
+@if (model == null)
+{
+    <p>Chargement...</p>
+}
+else
+{
+    <EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary class="text-danger" />
+
+        <div class="mb-3">
+            <label class="form-label">Titre</label>
+            <InputText @bind-Value="model.Title" class="form-control" disabled />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <InputTextArea @bind-Value="model.Description" class="form-control" rows="4" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Statut</label>
+            <InputSelect @bind-Value="model.Status" class="form-select">
+                <option value="0">Open</option>
+                <option value="1">In Progress</option>
+                <option value="2">Resolved</option>
+                <option value="3">Closed</option>
+            </InputSelect>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="button" class="btn btn-secondary" @onclick="Cancel">Annuler</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private UpdateTicketModel? model;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var ticket = await Http.GetFromJsonAsync<Ticket>($"/api/tickets/{Id}");
+        if (ticket == null)
+        {
+            Navigation.NavigateTo("/tickets");
+            return;
+        }
+
+        model = new UpdateTicketModel
+        {
+            Id = ticket.Id,
+            Title = ticket.Title,
+            Description = ticket.Description,
+            Status = ticket.Status
+        };
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (model == null) return;
+
+        await Http.PutAsJsonAsync($"/api/tickets/{Id}", new
+        {
+            description = model.Description,
+            status = model.Status
+        });
+
+        Navigation.NavigateTo($"/tickets/{Id}");
+    }
+
+    private void Cancel() => Navigation.NavigateTo($"/tickets/{Id}");
+}
