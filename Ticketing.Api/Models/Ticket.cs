@@ -17,6 +17,9 @@ public class Ticket
     public TicketStatus Status { get; set; } = TicketStatus.Open;
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    // Relation (optionnel pour EF Core)
+    public List<Comment> Comments { get; set; } = new();
 }
 
 public enum TicketStatus
