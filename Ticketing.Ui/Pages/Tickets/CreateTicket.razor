@@ -1,0 +1,54 @@
+@page "/tickets/create"
+@using Ticketing.Ui.Models
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<h3>Créer un nouveau ticket</h3>
+
+<EditForm Model="@model" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary class="text-danger" />
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Titre *</label>
+        <InputText id="title" class="form-control" @bind-Value="model.Title" />
+        <ValidationMessage For="@(() => model.Title)" class="text-danger" />
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <InputTextArea id="description" class="form-control" @bind-Value="model.Description" rows="4" />
+        <ValidationMessage For="@(() => model.Description)" class="text-danger" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Créer</button>
+    <button type="button" class="btn btn-secondary" @onclick="Cancel">Annuler</button>
+</EditForm>
+
+@code {
+    private CreateTicketModel model = new();
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            await Http.PostAsJsonAsync("/api/tickets", new
+            {
+                title = model.Title,
+                description = model.Description
+            });
+            Navigation.NavigateTo("/tickets");
+        }
+        catch (Exception ex)
+        {
+            // En dev, tu peux afficher une alerte ou logger
+            Console.WriteLine($"Erreur : {ex}");
+            // Optionnel : afficher un message à l'utilisateur
+        }
+    }
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/tickets");
+    }
+}

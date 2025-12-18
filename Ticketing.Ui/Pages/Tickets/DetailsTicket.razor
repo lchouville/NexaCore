@@ -1,0 +1,77 @@
+@page "/tickets/{Id:int}"
+@using Ticketing.Ui.Models
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<h3>Détail du ticket #@Id</h3>
+
+@if (ticket == null)
+{
+    <p>Chargement...</p>
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@ticket.Title</h5>
+            <p class="card-text">@ticket.Description</p>
+            <p><strong>Status :</strong> @ticket.GetStatusText()</p>
+            <p><strong>Créé le :</strong> @ticket.CreatedAt.ToString("g")</p>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <button @onclick="GoBack" class="btn btn-secondary">Retour</button>
+        <button @onclick="ShowConfirm" class="btn btn-danger ms-2">Supprimer</button>
+        @if (showConfirm)
+        {
+            <div class="modal" style="display:block;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            Voulez-vous vraiment supprimer ce ticket ?
+                        </div>
+                        <div class="modal-footer">
+                            <button @onclick="CancelConfirm" class="btn btn-secondary">Annuler</button>
+                            <button @onclick="ConfirmDelete" class="btn btn-danger">Supprimer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+@code {
+    bool showConfirm = false;
+
+    void ShowConfirm() => showConfirm = true;
+    void CancelConfirm() => showConfirm = false;
+    async Task ConfirmDelete()
+    {
+        showConfirm = false;
+        await Delete();
+    }
+}
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Ticket? ticket;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ticket = await Http.GetFromJsonAsync<Ticket>($"/api/tickets/{Id}");
+        if (ticket == null)
+        {
+            Navigation.NavigateTo("/tickets");
+        }
+    }
+
+    void GoBack() => Navigation.NavigateTo("/tickets");
+
+    async Task Delete()
+    {
+        await Http.DeleteAsync($"/api/tickets/{Id}");
+        Navigation.NavigateTo("/tickets");
+    }
+}

@@ -1,0 +1,75 @@
+@page "/tickets"
+@using Ticketing.Ui.Models
+@inject HttpClient Http
+
+<h3>Tickets</h3>
+
+@if (tickets == null)
+{
+    <p>Chargement...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Titre</th>
+                <th>Status</th>
+                <th>Créé</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in tickets)
+            {
+                <tr style="cursor:pointer;" @onclick="() => GoToDetail(t.Id)">
+                    <td>@t.Id</td>
+                    <td>@t.Title</td>
+                    <td>@t.GetStatusText()</td>
+                    <td>@t.CreatedAt.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button @onclick="Prev" disabled="@(_page == 1)">Précédent</button>
+    <button @onclick="Next">Suivant</button>
+    
+}
+
+@inject NavigationManager Navigation
+@code {
+    List<Ticketing.Ui.Models.Ticket>? tickets;
+    int _page = 1;
+    const int PageSize = 10;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Load();
+    }
+
+    async Task Load()
+    {
+        var response = await Http.GetFromJsonAsync<PagedResult<Ticket>>(
+            $"/api/tickets/paged?page={_page}&pageSize={PageSize}");
+        
+        tickets = response?.data;
+    }
+
+    async Task Next()
+    {
+        _page++;
+        await Load();
+    }
+
+    async Task Prev()
+    {
+        if (_page > 1)
+        {
+            _page--;
+            await Load();
+        }
+    }
+
+    void GoToDetail(int id) => Navigation.NavigateTo($"/tickets/{id}");
+}

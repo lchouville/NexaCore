@@ -19,12 +19,16 @@ Exemples:
   $0 -m                              # Tout générer
   $0 -m -a                           # Tout générer (explicite)
   $0 -m diagram1.mmd                 # Un fichier spécifique
-  $0 -m diagram1.mmd diagram2.mmd            # Plusieurs fichiers
+  $0 -m diagram1.mmd diagram2.mmd    # Plusieurs fichiers
   $0 -m subfolder/diagram.mmd        # Fichier dans sous-dossier
   
 Autres options:
   -s, --status          Afficher le statut
   -h, --help            Afficher cette aide
+  -b, --build           Construire l'application .NET
+  -ra, --runApi         Lancer l'application .NET API
+  -ru, --runUi          Lancer l'application .NET UI
+  -db                   Recréer la base de données
 
 EOF
 }
@@ -33,9 +37,22 @@ EOF
 #         TRAITEMENT DES OPTIONS
 ##############################################
 case "$1" in
-    -r|--run)
+    -db)
+        # Drop and recreate the database
+        dotnet ef database drop --project ./Ticketing.Api --force
+        dotnet ef database update --project ./Ticketing.Api
+        ;;
+    -b|--build)
+        # Build the .NET application
+        dotnet build ./Ticketing.Api
+        ;;
+    -ra|--runApi)
         # Launch the .NET application
-        dotnet run
+        dotnet run --project ./Ticketing.Api
+        ;;
+    -ru|--runUi)
+        # Launch the .NET UI application
+        dotnet run --project ./Ticketing.Ui
         ;;
     -m|--mmdToSVG)
         shift  # Enlever le premier argument (-m)

@@ -13,7 +13,16 @@ public class Ticket
     [MaxLength(2000)]
     public string? Description { get; set; }
 
+    // Ticket status with enum string
     public TicketStatus Status { get; set; } = TicketStatus.Open;
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+}
+
+public enum TicketStatus
+{
+    Open,
+    InProgress,
+    Resolved,
+    Closed
 }

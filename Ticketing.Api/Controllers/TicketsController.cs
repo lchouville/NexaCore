@@ -17,11 +17,32 @@ public class TicketsController : ControllerBase
         _db = db;
     }
 
-    [HttpGet]
-    public async Task<ActionResult<IEnumerable<Ticket>>> GetAll()
+    [HttpGet("paged")]
+    public async Task<ActionResult<object>> GetPaged(
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 10)
     {
-        return Ok(await _db.Tickets.AsNoTracking().ToListAsync());
+        if (page <= 0 || pageSize <= 0 || pageSize > 50)
+            return BadRequest("Invalid pagination parameters");
+
+        var query = _db.Tickets.AsNoTracking().OrderByDescending(t => t.CreatedAt);
+
+        var totalCount = await query.CountAsync();
+        var tickets = await query
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return Ok(new
+        {
+            page,
+            pageSize,
+            totalCount,
+            totalPages = (int)Math.Ceiling(totalCount / (double)pageSize),
+            data = tickets
+        });
     }
+
 
     [HttpGet("{id:int}")]
     public async Task<ActionResult<Ticket>> GetById(int id)

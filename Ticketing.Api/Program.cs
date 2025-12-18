@@ -2,6 +2,16 @@ using Microsoft.EntityFrameworkCore;
 using Ticketing.Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+// add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowBlazorWasm", policy =>
+    {
+        policy.WithOrigins("http://localhost:5030") // URL de l'application Blazor WebAssembly
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
 
 // Services
 builder.Services.AddControllers();
@@ -18,6 +28,9 @@ builder.Services.AddControllers()
     });
 
 var app = builder.Build();
+
+// Utilise CORS (doit être avant UseAuthorization, UseEndpoints, etc.)
+app.UseCors("AllowBlazorWasm");
 
 // Pipeline
 if (app.Environment.IsDevelopment())
@@ -42,6 +55,7 @@ app.MapGet("/health/db", async (AppDbContext db) =>
 });
 
 app.UseHttpsRedirection();
+app.UseRouting();
 app.UseAuthorization();
 app.MapControllers();
 
