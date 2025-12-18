@@ -71,6 +71,6 @@ docker-data/
 # Others
 ########################################
 # Bases de données SQLite
-*.db
-*.db-shm
-*.db-wal
+**/*.db
+**/*.db-shm
+**/*.db-wal
